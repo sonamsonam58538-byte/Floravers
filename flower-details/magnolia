@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Magnolia | FloraVerse</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/flower-details.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="../index.html" class="logo">🌿 FloraVerse</a>
+
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../flowers.html">Flowers</a>
+            <a href="../index.html#find-flower">Find Your Flower</a>
+        </nav>
+    </header>
+
+
+    <!-- FLOWER DETAIL PAGE -->
+    <main class="flower-detail-page">
+
+        <!-- HERO -->
+        <section class="detail-hero">
+
+            <div class="detail-image">
+                <img src="../images/magnolia.jpg" alt="Magnolia flower">
+            </div>
+
+            <div class="detail-content">
+
+                <span class="flower-tag">ORNAMENTAL FLOWER</span>
+
+                <h1>Magnolia</h1>
+
+                <p class="scientific">
+                    Magnolia
+                </p>
+
+                <p class="detail-intro">
+                    Magnolia is an elegant flowering plant known for its
+                    large, beautiful blooms and pleasant fragrance.
+                    Magnolias can become impressive garden plants and
+                    are admired for their timeless appearance.
+                </p>
+
+
+                <!-- QUICK INFO -->
+                <div class="quick-info">
+
+                    <div class="info-box">
+                        <span>☀️</span>
+                        <strong>Sunlight</strong>
+                        <p>Full Sun</p>
+                    </div>
+
+                    <div class="info-box">
+                        <span>💧</span>
+                        <strong>Water</strong>
+                        <p>Moderate</p>
+                    </div>
+
+                    <div class="info-box">
+                        <span>🌱</span>
+                        <strong>Soil</strong>
+                        <p>Fertile & Well Drained</p>
+                    </div>
+
+                    <div class="info-box">
+                        <span>🌤️</span>
+                        <strong>Season</strong>
+                        <p>Spring</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CARE SECTION -->
+        <section class="detail-section">
+
+            <div class="section-title">
+                <span class="section-label">MAGNOLIA CARE</span>
+
+                <h2>How to Care for Magnolia</h2>
+
+                <p>
+                    Magnolias grow well with adequate sunlight, regular
+                    watering and fertile soil with good drainage.
+                </p>
+            </div>
+
+
+            <div class="care-grid">
+
+                <div class="care-card">
+                    <div class="care-icon">☀️</div>
+
+                    <h3>Sunlight</h3>
+
+                    <p>
+                        Plant magnolia in a bright location where it can
+                        receive plenty of natural sunlight.
+                    </p>
+                </div>
+
+
+                <div class="care-card">
+                    <div class="care-icon">💧</div>
+
+                    <h3>Watering</h3>
+
+                    <p>
+                        Water regularly, especially while the plant is
+                        becoming established. Avoid waterlogged soil.
+                    </p>
+                </div>
+
+
+                <div class="care-card">
+                    <div class="care-icon">🌱</div>
+
+                    <h3>Soil</h3>
+
+                    <p>
+                        Use fertile, well-drained soil that provides
+                        enough room for healthy root development.
+                    </p>
+                </div>
+
+
+                <div class="care-card">
+                    <div class="care-icon">🌿</div>
+
+                    <h3>Maintenance</h3>
+
+                    <p>
+                        Keep the area around the plant clean and prune
+                        only when necessary to maintain its natural shape.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GROWING GUIDE -->
+        <section class="detail-section growing-section">
+
+            <div class="section-title">
+                <span class="section-label">GROWING GUIDE</span>
+
+                <h2>How to Grow Magnolia</h2>
+
+                <p>
+                    Magnolias need enough space to develop and can make
+                    beautiful long-term additions to suitable gardens.
+                </p>
+            </div>
+
+
+            <div class="growing-guide">
+
+                <div class="guide-step">
+                    <span>01</span>
+
+                    <div>
+                        <h3>Choose the Location</h3>
+
+                        <p>
+                            Select a bright location with enough space
+                            for the plant to grow naturally.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="guide-step">
+                    <span>02</span>
+
+                    <div>
+                        <h3>Prepare the Soil</h3>
+
+                        <p>
+                            Use fertile, well-drained soil and prepare
+                            enough space for the developing root system.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="guide-step">
+                    <span>03</span>
+
+                    <div>
+                        <h3>Plant Carefully</h3>
+
+                        <p>
+                            Plant the young magnolia carefully and avoid
+                            damaging its roots during planting.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="guide-step">
+                    <span>04</span>
+
+                    <div>
+                        <h3>Provide Regular Care</h3>
+
+                        <p>
+                            Give adequate water and sunlight while the
+                            plant becomes established.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FLOWER FACT -->
+        <section class="flower-fact">
+
+            <div>
+                <span class="section-label">DID YOU KNOW?</span>
+
+                <h2>Magnolia Fact 🤍</h2>
+
+                <p>
+                    Magnolias are an ancient group of flowering plants,
+                    and their large blooms are one of their most
+                    recognizable features.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- BACK BUTTON -->
+        <div class="back-to-flowers">
+
+            <a href="../flowers.html" class="flower-btn">
+                ← Back to Flowers
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>🌿 FloraVerse — Discover. Grow. Bloom.</p>
+    </footer>
+
+</body>
+</html>

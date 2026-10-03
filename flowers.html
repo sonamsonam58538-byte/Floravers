@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<title>FloraVerse | Explore Flowers</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/flowers.css">
+
+
+</head>
+
+<body>
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        🌿 FloraVerse
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="flowers.html" class="active">Flowers</a>
+        <a href="#">Categories</a>
+        <a href="#">Growing Guide</a>
+        <a href="login.html">Login</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- FLOWER HERO -->
+
+    <section class="flowers-hero">
+
+        <div class="flowers-hero-content">
+
+            <span class="section-label">
+                🌸 FLORAVERSE COLLECTION
+            </span>
+
+            <h1>
+                Discover the World<br>
+                of Flowers
+            </h1>
+
+            <p>
+                Explore beautiful flowers and discover
+                where they grow, how to care for them,
+                and what makes each one special.
+            </p>
+
+            <div class="hero-stats">
+
+                <div>
+                    <strong>100+</strong>
+                    <span>Flowers</span>
+                </div>
+
+                <div>
+                    <strong>20+</strong>
+                    <span>Categories</span>
+                </div>
+
+                <div>
+                    <strong>∞</strong>
+                    <span>Things to Learn</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="flowers-hero-visual">
+
+            <div class="flower-circle">
+                🌸
+            </div>
+
+            <div class="floating-flower flower-one">
+                🌹
+            </div>
+
+            <div class="floating-flower flower-two">
+                🌻
+            </div>
+
+            <div class="floating-flower flower-three">
+                🪷
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+
+    <section class="flower-explorer">
+
+        <div class="section-title">
+
+            <span>🔎 EXPLORE</span>
+
+            <h2>Find Your Flower</h2>
+
+            <p>
+                Search our collection and discover
+                flowers that match your interests.
+            </p>
+
+        </div>
+
+        <div class="flower-search">
+
+            <input
+                type="text"
+                id="flowerSearch"
+                placeholder="Search flower name..."
+            >
+
+            <button onclick="searchFlower()">
+                Search
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORY BAR -->
+
+    <section class="flower-categories">
+
+        <div class="section-title">
+
+            <span>🌿 BROWSE</span>
+
+            <h2>Explore by Category</h2>
+
+        </div>
+
+        <div class="mini-category-grid">
+
+            <button>🌹 Garden Flowers</button>
+
+            <button>🌻 Summer Flowers</button>
+
+            <button>🌷 Spring Flowers</button>
+
+            <button>🪷 Aquatic Flowers</button>
+
+            <button>🌸 Fragrant Flowers</button>
+
+        </div>
+
+    </section>
+
+
+    <!-- COLLECTION -->
+
+    <section class="flower-library">
+
+        <div class="library-heading">
+
+            <div>
+
+                <span class="section-label">
+                    🌺 FLOWER LIBRARY
+                </span>
+
+                <h2>Popular Flowers</h2>
+
+            </div>
+
+            <p>
+                Start exploring some of the most
+                beautiful flowers in FloraVerse.
+            </p>
+
+        </div>
+
+
+        <div class="flower-collection">
+
+<!-- ROSE -->
+
+<article class="flower-card">
+
+    <div class="flower-image">
+        <img
+            src="images/rose.jpg"
+            alt="Rose"
+        >
+    </div>
+
+    <div class="flower-info">
+
+        <span class="flower-tag">
+            GARDEN
+        </span>
+
+        <h2>Rose</h2>
+
+        <p class="scientific">
+            Rosa
+        </p>
+
+        <p>
+            A beautiful and fragrant flower
+            loved by gardeners around the world.
+        </p>
+
+        <div class="flower-details">
+            <span>☀️ Full Sun</span>
+            <span>💧 Moderate</span>
+        </div>
+
+        <a href="flower-details/rose.html" class="flower-btn">
+            Explore Rose
+        </a>
+
+    </div>
+
+</article>
+
+
+            <!-- SUNFLOWER -->
+
+            <article class="flower-card">
+
+                <div class="flower-image">
+
+                    <img
+                        src="images/sunflower.jpg"
+                        alt="Sunflower"
+                    >
+
+                </div>
+
+                <div class="flower-info">
+
+                    <span class="flower-tag">
+                        SUMMER
+                    </span>
+
+                    <h2>Sunflower</h2>
+
+                    <p class="scientific">
+                        Helianthus annuus
+                    </p>
+
+                    <p>
+                        A bright and cheerful flower that
+                        loves plenty of sunlight.
+                    </p>
+
+                    <div class="flower-details">
+
+                        <span>☀️ Full Sun</span>
+                        <span>💧 Moderate</span>
+
+                    </div>
+
+                    <a
+                        href="flower-details.html?name=sunflower"
+                        class="flower-btn"
+                    >
+                        Explore Sunflower →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- LOTUS -->
+
+            <article class="flower-card">
+
+                <div class="flower-image">
+
+                    <img
+                        src="images/lotus.jpg"
+                        alt="Lotus"
+                    >
+
+                </div>
+
+                <div class="flower-info">
+
+                    <span class="flower-tag">
+                        AQUATIC
+                    </span>
+
+                    <h2>Lotus</h2>
+
+                    <p class="scientific">
+                        Nelumbo nucifera
+                    </p>
+
+                    <p>
+                        A stunning aquatic flower that
+                        grows in ponds and still water.
+                    </p>
+
+                    <div class="flower-details">
+
+                        <span>☀️ Full Sun</span>
+                        <span>💧 High</span>
+
+                    </div>
+
+                    <a
+                        href="flower-details.html?name=lotus"
+                        class="flower-btn"
+                    >
+                        Explore Lotus →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- TULIP -->
+
+            <article class="flower-card">
+
+                <div class="flower-image">
+
+                    <img
+                        src="images/tulip.jpg"
+                        alt="Tulip"
+                    >
+
+                </div>
+
+                <div class="flower-info">
+
+                    <span class="flower-tag">
+                        SPRING
+                    </span>
+
+                    <h2>Tulip</h2>
+
+                    <p class="scientific">
+                        Tulipa
+                    </p>
+
+                    <p>
+                        A colorful spring flower available
+                        in many beautiful varieties.
+                    </p>
+
+                    <div class="flower-details">
+
+                        <span>☀️ Full Sun</span>
+                        <span>💧 Low</span>
+
+                    </div>
+
+                    <a
+                        href="flower-details.html?name=tulip"
+                        class="flower-btn"
+                    >
+                        Explore Tulip →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- JASMINE -->
+
+            <article class="flower-card">
+
+                <div class="flower-image">
+
+                    <img
+                        src="images/jasmine.jpg"
+                        alt="Jasmine"
+                    >
+
+                </div>
+
+                <div class="flower-info">
+
+                    <span class="flower-tag">
+                        FRAGRANT
+                    </span>
+
+                    <h2>Jasmine</h2>
+
+                    <p class="scientific">
+                        Jasminum
+                    </p>
+
+                    <p>
+                        Famous for its sweet fragrance
+                        and delicate flowers.
+                    </p>
+
+                    <div class="flower-details">
+
+                        <span>🌤️ Partial Sun</span>
+                        <span>💧 Moderate</span>
+
+                    </div>
+
+                    <a
+                        href="flower-details.html?name=jasmine"
+                        class="flower-btn"
+                    >
+                        Explore Jasmine →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- LILY -->
+
+            <article class="flower-card">
+
+                <div class="flower-image">
+
+                    <img
+                        src="images/lily.jpg"
+                        alt="Lily"
+                    >
+
+                </div>
+
+                <div class="flower-info">
+
+                    <span class="flower-tag">
+                        GARDEN
+                    </span>
+
+                    <h2>Lily</h2>
+
+                    <p class="scientific">
+                        Lilium
+                    </p>
+
+                    <p>
+                        Elegant flowers known for their
+                        beautiful shape and fragrance.
+                    </p>
+
+                    <div class="flower-details">
+
+                        <span>🌤️ Partial Sun</span>
+                        <span>💧 Moderate</span>
+
+                    </div>
+
+                    <a
+                        href="flower-details.html?name=lily"
+                        class="flower-btn"
+                    >
+                        Explore Lily →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- MARIGOLD -->
+
+            <article class="flower-card">
+
+                <div class="flower-image">
+
+                    <img
+                        src="images/marigold.jpg"
+                        alt="Marigold"
+                    >
+
+                </div>
+
+                <div class="flower-info">
+
+                    <span class="flower-tag">
+                        SUMMER
+                    </span>
+
+                    <h2>Marigold</h2>
+
+                    <p class="scientific">
+                        Tagetes
+                    </p>
+
+                    <p>
+                        A bright and easy-to-grow flower
+                        commonly found in Indian gardens.
+                    </p>
+
+                    <div class="flower-details">
+
+                        <span>☀️ Full Sun</span>
+                        <span>💧 Moderate</span>
+
+                    </div>
+
+                    <a
+                        href="flower-details.html?name=marigold"
+                        class="flower-btn"
+                    >
+                        Explore Marigold →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- ORCHID -->
+
+            <article class="flower-card">
+
+                <div class="flower-image">
+
+                    <img
+                        src="images/orchid.jpg"
+                        alt="Orchid"
+                    >
+
+                </div>
+
+                <div class="flower-info">
+
+                    <span class="flower-tag">
+                        INDOOR
+                    </span>
+
+                    <h2>Orchid</h2>
+
+                    <p class="scientific">
+                        Orchidaceae
+                    </p>
+
+                    <p>
+                        An elegant flower that can grow
+                        indoors with suitable conditions.
+                    </p>
+
+                    <div class="flower-details">
+
+                        <span>🌤️ Partial Sun</span>
+                        <span>💧 Moderate</span>
+
+                    </div>
+
+                    <a
+                        href="flower-details.html?name=orchid"
+                        class="flower-btn"
+                    >
+                        Explore Orchid →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- LOAD MORE -->
+
+        <div class="load-more">
+
+            <button>
+                Explore More Flowers →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="flowers-cta">
+
+        <div>
+
+            <span>
+                🌱 LEARN • GROW • CARE
+            </span>
+
+            <h2>
+                Every Flower Has a Story.
+            </h2>
+
+            <p>
+                Discover the right conditions, care tips,
+                growing methods and interesting facts
+                about your favorite flowers.
+            </p>
+
+        </div>
+
+        <a href="#">
+            Start Exploring →
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+        🌿 FloraVerse
+    </div>
+
+    <p>
+        Discover • Learn • Grow • Care
+    </p>
+
+    <p class="copyright">
+        © 2026 FloraVerse
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+```
+
+</body>
+
+</html>

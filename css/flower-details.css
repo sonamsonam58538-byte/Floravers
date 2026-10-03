@@ -1,0 +1,461 @@
+
+/* =========================================
+   FLORAVERSE - FLOWER DETAILS PAGE
+   ========================================= */
+
+.flower-detail-page {
+    background: #fbfaf5;
+    color: #26382b;
+}
+
+
+/* =========================================
+   DETAIL HERO
+   ========================================= */
+
+.flower-detail-hero {
+    min-height: 520px;
+    padding: 70px 7%;
+    display: flex;
+    align-items: center;
+    gap: 65px;
+
+    background: linear-gradient(
+        135deg,
+        #edf7ec,
+        #fffaf0
+    );
+}
+
+
+/* IMAGE */
+
+.detail-image {
+    width: 38%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dcebd9;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.detail-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+
+/* CONTENT */
+
+.detail-content {
+    width: 54%;
+    max-width: 650px;
+}
+
+.detail-tag {
+    display: inline-block;
+
+    padding: 8px 16px;
+    margin-bottom: 15px;
+
+    background: #dcebd9;
+    color: #315c3b;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.detail-content h1 {
+    margin: 0 0 8px;
+
+    color: #315c3b;
+
+    font-size: 56px;
+    line-height: 1.1;
+    font-weight: 750;
+}
+
+.detail-scientific {
+    margin: 0 0 22px;
+
+    color: #718174;
+
+    font-size: 19px;
+    font-style: italic;
+}
+
+.detail-description {
+    max-width: 600px;
+
+    margin-bottom: 30px;
+
+    color: #536257;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   QUICK INFORMATION
+   ========================================= */
+
+.quick-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+
+    margin-top: 25px;
+}
+
+.info-box {
+    padding: 18px 12px;
+
+    background: #ffffff;
+
+    border: 1px solid #e4eadf;
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 25px rgba(49, 92, 59, 0.06);
+}
+
+.info-box strong {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #315c3b;
+    font-size: 13px;
+}
+
+.info-box span {
+    color: #68766b;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   CARE SECTION
+   ========================================= */
+
+.flower-care {
+    padding: 75px 7%;
+    background: #ffffff;
+}
+
+.care-heading {
+    max-width: 750px;
+    margin: 0 auto 45px;
+
+    text-align: center;
+}
+
+.care-heading h2 {
+    margin-bottom: 12px;
+
+    color: #315c3b;
+    font-size: 38px;
+}
+
+.care-heading p {
+    color: #68766b;
+    line-height: 1.7;
+}
+
+
+.care-grid {
+    max-width: 1050px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.care-card {
+    padding: 28px 20px;
+
+    background: #fbfaf5;
+
+    border: 1px solid #e4eadf;
+    border-radius: 22px;
+
+    text-align: center;
+
+    transition: 0.25s ease;
+}
+
+.care-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 15px 30px rgba(49, 92, 59, 0.10);
+}
+
+.care-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #dcebd9;
+
+    border-radius: 50%;
+
+    font-size: 27px;
+}
+
+.care-card h3 {
+    margin-bottom: 8px;
+
+    color: #315c3b;
+    font-size: 18px;
+}
+
+.care-card p {
+    margin: 0;
+
+    color: #68766b;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   GROWING GUIDE
+   ========================================= */
+
+.growing-guide {
+    padding: 75px 7%;
+
+    background: linear-gradient(
+        135deg,
+        #fffaf0,
+        #edf7ec
+    );
+}
+
+.growing-content {
+    max-width: 1050px;
+    margin: auto;
+}
+
+.growing-content h2 {
+    margin-bottom: 35px;
+
+    color: #315c3b;
+
+    font-size: 38px;
+    text-align: center;
+}
+
+.guide-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.guide-item {
+    padding: 22px 25px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+    border: 1px solid #e4eadf;
+
+    color: #536257;
+
+    line-height: 1.7;
+
+    box-shadow: 0 7px 22px rgba(49, 92, 59, 0.05);
+}
+
+.guide-item strong {
+    color: #315c3b;
+}
+
+
+/* =========================================
+   FLOWER FACT
+   ========================================= */
+
+.flower-fact {
+    max-width: 850px;
+
+    margin: 70px auto;
+    padding: 35px;
+
+    background: #315c3b;
+    color: #ffffff;
+
+    border-radius: 26px;
+
+    text-align: center;
+
+    box-shadow: 0 18px 40px rgba(49, 92, 59, 0.18);
+}
+
+.flower-fact h2 {
+    margin-bottom: 12px;
+
+    font-size: 27px;
+}
+
+.flower-fact p {
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 1.7;
+    opacity: 0.92;
+}
+
+
+/* =========================================
+   BACK BUTTON
+   ========================================= */
+
+.back-to-flowers {
+    padding: 0 7% 75px;
+
+    text-align: center;
+}
+
+.back-to-flowers a {
+    display: inline-block;
+
+    padding: 13px 25px;
+
+    background: #315c3b;
+    color: #ffffff;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+    font-weight: 700;
+
+    transition: 0.25s ease;
+}
+
+.back-to-flowers a:hover {
+    background: #24482e;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 1050px) {
+
+    .flower-detail-hero {
+        gap: 40px;
+    }
+
+    .quick-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .care-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .flower-detail-hero {
+        flex-direction: column;
+        padding: 60px 6%;
+        text-align: center;
+    }
+
+    .detail-image {
+        width: 100%;
+        min-height: 350px;
+    }
+
+    .detail-image img {
+        height: 350px;
+    }
+
+    .detail-content {
+        width: 100%;
+    }
+
+    .detail-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .quick-info {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .guide-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .flower-detail-hero {
+        padding: 50px 5%;
+    }
+
+    .detail-image {
+        min-height: 280px;
+        border-radius: 24px;
+    }
+
+    .detail-image img {
+        height: 280px;
+    }
+
+    .detail-content h1 {
+        font-size: 45px;
+    }
+
+    .detail-description {
+        font-size: 15px;
+    }
+
+    .quick-info {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .flower-care,
+    .growing-guide {
+        padding: 55px 5%;
+    }
+
+    .care-heading h2,
+    .growing-content h2 {
+        font-size: 30px;
+    }
+
+    .care-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flower-fact {
+        margin: 50px 5%;
+        padding: 28px 20px;
+    }
+}
+

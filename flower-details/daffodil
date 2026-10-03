@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daffodil | FloraVerse</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/flower-details.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="../index.html" class="logo">🌿 FloraVerse</a>
+
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../flowers.html">Flowers</a>
+            <a href="../index.html#find-flower">Find Your Flower</a>
+        </nav>
+    </header>
+
+
+    <!-- FLOWER DETAIL PAGE -->
+    <main class="flower-detail-page">
+
+        <!-- HERO -->
+        <section class="detail-hero">
+
+            <div class="detail-image">
+                <img src="../images/daffodil.jpg" alt="Daffodil flower">
+            </div>
+
+            <div class="detail-content">
+
+                <span class="flower-tag">SPRING FLOWER</span>
+
+                <h1>Daffodil</h1>
+
+                <p class="scientific">
+                    Narcissus
+                </p>
+
+                <p class="detail-intro">
+                    Daffodil is a bright spring flower known for its
+                    cheerful yellow or white petals and distinctive
+                    trumpet-shaped center. It brings a fresh and colorful
+                    look to gardens after winter.
+                </p>
+
+
+                <!-- QUICK INFO -->
+                <div class="quick-info">
+
+                    <div class="info-box">
+                        <span>☀️</span>
+                        <strong>Sunlight</strong>
+                        <p>Full Sun</p>
+                    </div>
+
+                    <div class="info-box">
+                        <span>💧</span>
+                        <strong>Water</strong>
+                        <p>Moderate</p>
+                    </div>
+
+                    <div class="info-box">
+                        <span>🌱</span>
+                        <strong>Soil</strong>
+                        <p>Well Drained</p>
+                    </div>
+
+                    <div class="info-box">
+                        <span>🌤️</span>
+                        <strong>Season</strong>
+                        <p>Spring</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CARE SECTION -->
+        <section class="detail-section">
+
+            <div class="section-title">
+                <span class="section-label">DAFFODIL CARE</span>
+
+                <h2>How to Care for Daffodil</h2>
+
+                <p>
+                    Daffodils grow well with sunlight, moderate watering
+                    and soil that drains freely.
+                </p>
+            </div>
+
+
+            <div class="care-grid">
+
+                <div class="care-card">
+                    <div class="care-icon">☀️</div>
+
+                    <h3>Sunlight</h3>
+
+                    <p>
+                        Give daffodils a sunny or lightly shaded location
+                        where they can receive good natural light.
+                    </p>
+                </div>
+
+
+                <div class="care-card">
+                    <div class="care-icon">💧</div>
+
+                    <h3>Watering</h3>
+
+                    <p>
+                        Keep the soil moderately moist during active
+                        growth, while avoiding excessive water.
+                    </p>
+                </div>
+
+
+                <div class="care-card">
+                    <div class="care-icon">🌱</div>
+
+                    <h3>Soil</h3>
+
+                    <p>
+                        Use fertile, well-drained soil so excess water
+                        does not remain around the roots.
+                    </p>
+                </div>
+
+
+                <div class="care-card">
+                    <div class="care-icon">🌿</div>
+
+                    <h3>Maintenance</h3>
+
+                    <p>
+                        Allow the foliage to naturally fade after
+                        flowering so the plant can store energy for
+                        the next growing season.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GROWING GUIDE -->
+        <section class="detail-section growing-section">
+
+            <div class="section-title">
+                <span class="section-label">GROWING GUIDE</span>
+
+                <h2>How to Grow Daffodil</h2>
+
+                <p>
+                    Daffodils are commonly grown from bulbs and can add
+                    beautiful spring color to gardens and containers.
+                </p>
+            </div>
+
+
+            <div class="growing-guide">
+
+                <div class="guide-step">
+                    <span>01</span>
+
+                    <div>
+                        <h3>Choose a Suitable Location</h3>
+
+                        <p>
+                            Select a location with good sunlight and
+                            soil drainage.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="guide-step">
+                    <span>02</span>
+
+                    <div>
+                        <h3>Prepare the Soil</h3>
+
+                        <p>
+                            Loosen the soil and make sure excess water
+                            can drain away easily.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="guide-step">
+                    <span>03</span>
+
+                    <div>
+                        <h3>Plant the Bulbs</h3>
+
+                        <p>
+                            Plant healthy daffodil bulbs at the appropriate
+                            depth and leave enough space between them.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="guide-step">
+                    <span>04</span>
+
+                    <div>
+                        <h3>Water and Wait for Growth</h3>
+
+                        <p>
+                            Water moderately and allow the plant to
+                            develop naturally as the season progresses.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FLOWER FACT -->
+        <section class="flower-fact">
+
+            <div>
+                <span class="section-label">DID YOU KNOW?</span>
+
+                <h2>Daffodil Fact 🌼</h2>
+
+                <p>
+                    Daffodils are among the flowers strongly associated
+                    with the arrival of spring and are known for their
+                    bright trumpet-shaped blooms.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- BACK BUTTON -->
+        <div class="back-to-flowers">
+
+            <a href="../flowers.html" class="flower-btn">
+                ← Back to Flowers
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>🌿 FloraVerse — Discover. Grow. Bloom.</p>
+    </footer>
+
+</body>
+</html>
