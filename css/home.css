@@ -1,331 +1,610 @@
-/* =========================================
-   FLORAVERSE - HOME PAGE
-========================================= */
+/* =====================================================
+   FLORAVERSE HOME
+   HAPPY BOTANICAL GARDEN THEME
+===================================================== */
 
+:root {
+    --flower-pink: #f58fa8;
+    --flower-pink-light: #fff0f4;
 
-/* =========================================
-   FLOWER OF THE DAY
-========================================= */
+    --flower-yellow: #f7c948;
+    --flower-yellow-light: #fff8dc;
 
-.flower-of-day {
-    width: 100%;
-    min-height: 500px;
+    --flower-purple: #a98bd4;
+    --flower-purple-light: #f5efff;
 
-    padding: 65px 7%;
+    --flower-green: #7eae69;
+    --flower-green-light: #eef8e9;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    --flower-mint: #dff4e5;
 
-    gap: 60px;
+    --flower-text: #40513a;
+    --flower-soft-text: #71806a;
 
-    background: linear-gradient(
-        135deg,
-        #edf7ec,
-        #fffaf0
-    );
+    --white: #ffffff;
 }
 
 
-.flower-day-image {
-    width: 48%;
-    min-height: 390px;
+/* =====================================================
+   HERO
+===================================================== */
+
+.home-hero {
+    min-height: 590px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 250, 247, 0.94) 0%,
+            rgba(255, 250, 247, 0.70) 32%,
+            rgba(255, 250, 247, 0.20) 65%,
+            rgba(255, 250, 247, 0.02) 100%
+        ),
+        url("../images/home-hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+/* Soft overlay */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 220, 230, 0.35),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(220, 245, 220, 0.30),
+            transparent 25%
+        );
+
+    pointer-events: none;
+}
+
+
+/* Hero content */
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+
+    width: min(620px, 90%);
+
+    margin-left: 8%;
+
+    padding: 40px 0;
+}
+
+
+.hero-badge {
+    display: inline-block;
+
+    padding: 10px 18px;
 
     border-radius: 30px;
 
+    background: rgba(255, 255, 255, 0.90);
+
+    color: #bd6580;
+
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+
+    box-shadow: 0 8px 25px rgba(150, 80, 100, 0.10);
+}
+
+
+.hero-content h1 {
+    margin: 22px 0 15px;
+
+    font-size: clamp(42px, 5vw, 68px);
+
+    line-height: 1.05;
+
+    color: #40513a;
+
+    font-weight: 800;
+}
+
+
+.hero-content h1 span {
+    display: block;
+
+    color: var(--flower-pink);
+}
+
+
+.hero-content p {
+    max-width: 550px;
+
+    color: #65745e;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 28px;
+}
+
+
+/* Hero buttons */
+
+.hero-buttons {
     display: flex;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+
+.hero-btn {
+    display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
-    background: #dcebd9;
+    padding: 14px 23px;
 
-    font-size: 170px;
+    border-radius: 30px;
 
-    box-shadow: 0 25px 60px rgba(48, 91, 57, 0.12);
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
 }
 
 
-.flower-day-content {
-    width: 45%;
-}
-
-
-.flower-day-content h1 {
-    margin: 14px 0 8px;
-
-    font-size: 62px;
-
-    color: #26382b;
-}
-
-
-.flower-day-content > p:not(.scientific-name) {
-    margin-top: 20px;
-
-    max-width: 520px;
-
-    color: #66736a;
-
-    font-size: 17px;
-    line-height: 1.8;
-}
-
-
-/* =========================================
-   CATEGORIES
-========================================= */
-
-.categories {
-    width: 100%;
-
-    padding: 75px 7%;
-
-    background: white;
-}
-
-
-.category-grid {
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 24px;
-}
-
-
-.category-card {
-    padding: 30px 20px;
-
-    text-align: center;
-
-    border: 1px solid #e5ebe3;
-    border-radius: 22px;
-
-    background: #fff;
-
-    color: #26382b;
-
-    transition: 0.3s;
-}
-
-
-.category-card:hover {
-    transform: translateY(-7px);
-
-    box-shadow:
-        0 18px 40px rgba(40, 70, 45, 0.10);
-}
-
-
-.category-icon {
-    font-size: 55px;
-
-    margin-bottom: 15px;
-}
-
-
-.category-card h3 {
-    font-size: 20px;
-}
-
-
-.category-card p {
-    margin-top: 7px;
-
-    color: #7a857c;
-
-    font-size: 14px;
-}
-
-
-/* =========================================
-   SEARCH SECTION
-========================================= */
-
-.search-section {
-    width: 100%;
-
-    padding: 75px 7%;
-
-    text-align: center;
-
-    background: linear-gradient(
-        135deg,
-        #315c3b,
-        #47764f
-    );
+.primary-btn {
+    background: var(--flower-pink);
 
     color: white;
+
+    box-shadow: 0 10px 25px rgba(245, 143, 168, 0.30);
 }
 
 
-.search-section .section-label {
-    color: #d9ead8;
+.primary-btn:hover {
+    transform: translateY(-4px);
+
+    background: #ed7895;
 }
 
 
-.search-section h2 {
-    margin-top: 12px;
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.90);
 
-    font-size: 40px;
+    color: #607455;
+
+    border: 1px solid #dbe8d4;
 }
 
 
-.search-section p {
-    margin-top: 10px;
+.secondary-btn:hover {
+    transform: translateY(-4px);
 
-    color: #e0ece0;
+    background: white;
+
+    border-color: var(--flower-green);
 }
 
 
-.search-box {
-    max-width: 700px;
+/* Floating flowers */
 
-    margin: 30px auto 0;
+.floating-flower {
+    position: absolute;
 
-    display: flex;
+    z-index: 4;
 
-    gap: 10px;
+    font-size: 35px;
+
+    animation: floatingFlower 4s ease-in-out infinite;
+
+    pointer-events: none;
 }
 
 
-.search-box input {
-    flex: 1;
+.flower-one {
+    top: 12%;
+    right: 14%;
+}
 
-    padding: 17px 20px;
 
-    border: none;
-    border-radius: 13px;
+.flower-two {
+    bottom: 14%;
+    right: 32%;
 
-    outline: none;
+    animation-delay: 1s;
+}
+
+
+.flower-three {
+    top: 28%;
+    right: 5%;
+
+    animation-delay: 1.5s;
+}
+
+
+.flower-four {
+    bottom: 8%;
+    right: 8%;
+
+    animation-delay: 2s;
+}
+
+
+@keyframes floatingFlower {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(5deg);
+    }
+}
+
+
+/* Butterflies */
+
+.floating-butterfly {
+    position: absolute;
+
+    z-index: 5;
+
+    font-size: 25px;
+
+    animation: butterflyMove 6s ease-in-out infinite;
+}
+
+
+.butterfly-one {
+    top: 18%;
+    right: 38%;
+}
+
+
+.butterfly-two {
+    bottom: 20%;
+    right: 17%;
+
+    animation-delay: 2s;
+}
+
+
+@keyframes butterflyMove {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translate(18px, -18px) rotate(8deg);
+    }
+}
+
+
+/* =====================================================
+   FLOWER OF THE DAY
+===================================================== */
+
+.flower-of-day {
+
+    width: min(1180px, 92%);
+
+    margin: 75px auto;
+
+    padding: 25px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 45px;
+
+    align-items: center;
+
+    background: white;
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 18px 50px rgba(92, 120, 75, 0.12);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.flower-of-day::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    background: var(--flower-pink-light);
+
+    border-radius: 50%;
+
+    top: -100px;
+    left: -80px;
+}
+
+
+.flower-of-day::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    background: var(--flower-mint);
+
+    border-radius: 50%;
+
+    bottom: -90px;
+    right: -60px;
+}
+
+
+/* Image */
+
+.flower-day-image {
+
+    position: relative;
+
+    height: 430px;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    background: var(--flower-pink-light);
+}
+
+
+.flower-day-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+
+.flower-day-image:hover img {
+    transform: scale(1.06);
+}
+
+
+.image-decoration {
+
+    position: absolute;
+
+    z-index: 2;
+
+    font-size: 35px;
+}
+
+
+.decoration-one {
+    top: 20px;
+    left: 20px;
+}
+
+
+.decoration-two {
+    bottom: 20px;
+    right: 20px;
+}
+
+
+/* Content */
+
+.flower-day-content {
+
+    position: relative;
+
+    z-index: 3;
+
+    padding: 25px;
+}
+
+
+.section-label {
+
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    border-radius: 20px;
+
+    background: var(--flower-pink-light);
+
+    color: #c2637e;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.flower-day-content h2 {
+
+    margin: 17px 0 5px;
+
+    font-size: 50px;
+
+    color: var(--flower-text);
+}
+
+
+.scientific-name {
+
+    color: var(--flower-purple);
+
+    font-weight: 700;
 
     font-size: 15px;
 }
 
 
-.search-box button {
-    padding: 17px 25px;
+.flower-description {
 
-    border: none;
-    border-radius: 13px;
+    color: var(--flower-soft-text);
 
-    background: #fff;
+    line-height: 1.8;
 
-    color: #315c3b;
+    font-size: 16px;
 
-    font-weight: 700;
-
-    cursor: pointer;
+    margin: 22px 0;
 }
 
 
-/* =========================================
-   FIND YOUR FLOWER
-========================================= */
+/* Flower facts */
 
-.find-flower {
-    width: 100%;
+.flower-facts {
 
-    padding: 75px 7%;
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+
+.flower-facts div {
 
     text-align: center;
 
-    background: #fbfaf5;
+    padding: 15px 8px;
+
+    border-radius: 18px;
+
+    background: var(--flower-green-light);
 }
 
 
-.question {
-    max-width: 850px;
+.flower-facts span {
 
-    margin: 35px auto;
+    display: block;
+
+    font-size: 22px;
+
+    margin-bottom: 5px;
 }
 
 
-.question h3 {
-    margin-bottom: 17px;
+.flower-facts strong {
 
-    font-size: 20px;
+    display: block;
+
+    color: var(--flower-text);
+
+    font-size: 13px;
 }
 
 
-.option-group {
-    display: flex;
+.flower-facts small {
 
-    justify-content: center;
+    color: var(--flower-soft-text);
 
-    flex-wrap: wrap;
-
-    gap: 12px;
+    font-size: 11px;
 }
 
 
-.option-group button {
-    padding: 14px 22px;
+.explore-btn {
 
-    border: 1px solid #dce5dc;
-    border-radius: 13px;
+    display: inline-flex;
 
-    background: white;
+    align-items: center;
 
-    color: #48604d;
+    padding: 13px 22px;
 
-    cursor: pointer;
+    border-radius: 25px;
 
-    transition: 0.25s;
-}
-
-
-.option-group button:hover {
-    border-color: #6c9b72;
-
-    transform: translateY(-2px);
-}
-
-
-.find-btn {
-    margin-top: 10px;
-
-    padding: 15px 28px;
-
-    border: none;
-    border-radius: 13px;
-
-    background: #315c3b;
+    background: var(--flower-green);
 
     color: white;
 
+    text-decoration: none;
+
     font-weight: 700;
 
-    cursor: pointer;
+    transition: 0.3s ease;
 }
 
 
-/* =========================================
-   COLLECTION
-========================================= */
+.explore-btn:hover {
 
-.collection {
-    width: 100%;
+    background: #699755;
 
-    padding: 80px 7%;
+    transform: translateY(-3px);
 
-    background: #fff;
+    box-shadow: 0 8px 20px rgba(100, 145, 80, 0.25);
+}
+
+
+/* =====================================================
+   CATEGORY SECTION
+===================================================== */
+
+.categories {
+
+    padding: 80px 6%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffafa 0%,
+            #f9fff6 100%
+        );
+}
+
+
+.section-title {
 
     text-align: center;
+
+    max-width: 700px;
+
+    margin: 0 auto 40px;
 }
 
 
-.collection-content {
-    max-width: 750px;
+.section-title span {
 
-    margin: auto;
-}
+    color: var(--flower-green);
 
-
-.collection-content > span {
-    color: #6a9670;
-
-    font-size: 12px;
+    font-size: 13px;
 
     font-weight: 800;
 
@@ -333,89 +612,467 @@
 }
 
 
-.collection h2 {
-    margin-top: 12px;
+.section-title h2 {
 
-    font-size: 42px;
+    margin: 10px 0;
+
+    font-size: 38px;
+
+    color: var(--flower-text);
 }
 
 
-.collection p {
-    margin-top: 13px;
+.section-title p {
 
-    color: #6c786f;
+    color: var(--flower-soft-text);
 
     line-height: 1.7;
 }
 
 
-/* =========================================
-   HOME RESPONSIVE
-========================================= */
+/* Grid */
 
-@media (max-width: 1050px) {
+.category-grid {
 
-    .category-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    max-width: 1200px;
 
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 22px;
 }
 
 
-@media (max-width: 800px) {
+/* Cards */
+
+.category-card {
+
+    text-decoration: none;
+
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 25px;
+
+    border: 1px solid #edf0e9;
+
+    box-shadow: 0 10px 30px rgba(80, 100, 70, 0.08);
+
+    transition: 0.35s ease;
+}
+
+
+.category-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 18px 35px rgba(80, 100, 70, 0.15);
+}
+
+
+.category-image {
+
+    height: 220px;
+
+    overflow: hidden;
+}
+
+
+.category-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+
+.category-card:hover .category-image img {
+
+    transform: scale(1.08);
+}
+
+
+.category-info {
+
+    padding: 20px;
+
+    text-align: center;
+}
+
+
+.category-info span {
+
+    font-size: 25px;
+}
+
+
+.category-info h3 {
+
+    margin: 8px 0 4px;
+
+    color: var(--flower-text);
+
+    font-size: 20px;
+}
+
+
+.category-info p {
+
+    margin: 0;
+
+    color: var(--flower-soft-text);
+
+    font-size: 14px;
+}
+
+
+/* Different pastel cards */
+
+.rose-card .category-info {
+    background: #fff2f5;
+}
+
+
+.sunflower-card .category-info {
+    background: #fff9df;
+}
+
+
+.lotus-card .category-info {
+    background: #f5efff;
+}
+
+
+.tulip-card .category-info {
+    background: #edf9ed;
+}
+
+
+/* =====================================================
+   COLLECTION
+===================================================== */
+
+.collection {
+
+    position: relative;
+
+    overflow: hidden;
+
+    width: min(1200px, 92%);
+
+    margin: 80px auto;
+
+    padding: 75px 60px;
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1f5,
+            #fff9dd,
+            #edf9ee
+        );
+
+    box-shadow: 0 15px 40px rgba(100, 120, 80, 0.10);
+}
+
+
+.collection-content {
+
+    position: relative;
+
+    z-index: 3;
+
+    max-width: 650px;
+
+    margin: auto;
+}
+
+
+.collection-content > span {
+
+    color: #c26781;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.collection-content h2 {
+
+    margin: 12px 0;
+
+    color: var(--flower-text);
+
+    font-size: 40px;
+}
+
+
+.collection-content p {
+
+    color: var(--flower-soft-text);
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+
+.collection-flowers {
+
+    position: absolute;
+
+    top: 20px;
+    left: 30px;
+
+    font-size: 40px;
+
+    letter-spacing: 8px;
+
+    opacity: 0.75;
+
+    transform: rotate(-8deg);
+}
+
+
+.collection-leaves {
+
+    position: absolute;
+
+    bottom: 20px;
+    right: 30px;
+
+    font-size: 38px;
+
+    letter-spacing: 5px;
+
+    opacity: 0.75;
+
+    transform: rotate(8deg);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    padding: 45px 20px;
+
+    text-align: center;
+
+    background: #eef7e9;
+
+    color: #607255;
+
+    border-top: 1px solid #dcebd5;
+}
+
+
+.footer-logo {
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    color: #58744d;
+
+    margin-bottom: 10px;
+}
+
+
+footer p {
+
+    margin: 7px 0;
+
+    font-size: 14px;
+}
+
+
+.copyright {
+
+    opacity: 0.7;
+
+    margin-top: 18px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .category-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     .flower-of-day {
-        flex-direction: column;
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .flower-day-image {
+
+        height: 400px;
+    }
+
+    .hero-content {
+
+        margin-left: 6%;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .home-hero {
+
+        min-height: 650px;
+
+        background-position: 62% center;
+    }
+
+    .hero-content {
+
+        width: 86%;
+
+        margin: auto;
 
         text-align: center;
     }
 
+    .hero-content p {
 
-    .flower-day-image,
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+
+        justify-content: center;
+    }
+
+    .floating-flower,
+    .floating-butterfly {
+
+        display: none;
+    }
+
+    .flower-of-day {
+
+        width: 90%;
+
+        padding: 15px;
+
+        border-radius: 25px;
+    }
+
+    .flower-day-image {
+
+        height: 320px;
+    }
+
     .flower-day-content {
-        width: 100%;
+
+        padding: 15px;
     }
 
+    .flower-day-content h2 {
 
-    .flower-day-content > p:not(.scientific-name) {
-        margin-left: auto;
-        margin-right: auto;
+        font-size: 40px;
     }
 
+    .flower-facts {
 
-    .flower-day-image {
-        min-height: 300px;
+        grid-template-columns: repeat(3, 1fr);
     }
 
-}
+    .categories {
 
-
-@media (max-width: 550px) {
-
-    .flower-day-content h1 {
-        font-size: 45px;
+        padding: 60px 5%;
     }
-
-
-    .flower-day-image {
-        min-height: 250px;
-
-        font-size: 120px;
-    }
-
 
     .category-grid {
+
         grid-template-columns: 1fr;
     }
 
+    .section-title h2 {
 
-    .search-box {
-        flex-direction: column;
+        font-size: 31px;
     }
 
+    .collection {
 
-    .search-box button {
+        padding: 55px 25px;
+
+        margin: 55px auto;
+    }
+
+    .collection-content h2 {
+
+        font-size: 32px;
+    }
+
+    .collection-flowers,
+    .collection-leaves {
+
+        font-size: 25px;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .home-hero {
+
+        min-height: 620px;
+    }
+
+    .hero-content h1 {
+
+        font-size: 39px;
+    }
+
+    .hero-btn {
+
         width: 100%;
     }
 
+    .flower-facts {
+
+        gap: 6px;
+    }
+
+    .flower-facts div {
+
+        padding: 12px 4px;
+    }
+
+    .flower-facts strong {
+
+        font-size: 11px;
+    }
+
+    .flower-facts small {
+
+        font-size: 9px;
+    }
 }

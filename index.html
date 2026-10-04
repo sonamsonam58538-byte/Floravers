@@ -1,15 +1,17 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="en">
 
     <title>FloraVerse | Flower Explorer</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/home.css">
-    
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/language.css">
+
 </head>
 
 <body>
@@ -23,137 +25,276 @@
         </a>
 
         <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="flowers.html">Flowers</a>
-            <a href="#">Categories</a>
-            <a href="#">Growing Guide</a>
-            <a href="login.html">Login</a>
+
+            <a href="index.html" class="active">
+                Home
+            </a>
+
+            <a href="flowers.html">
+                Flowers
+            </a>
+
+            <a href="categories.html">
+                Categories
+            </a>
+
+            <a href="growing-guide.html">
+                Growing Guide
+            </a>
+
+            <a href="fertilizer-guide.html">
+                🌾 Fertilizer
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
         </nav>
 
     </header>
 
 
-    <!-- ================= FLOWER OF THE DAY ================= -->
+    <!-- ================= HERO ================= -->
+
+    <section class="home-hero">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+                🌸 WELCOME TO FLORAVERSE
+            </span>
+
+            <h1>
+                Discover the
+                <span>Beauty of Flowers</span>
+            </h1>
+
+            <p>
+                Explore beautiful flowers, discover their stories,
+                learn how to grow them and bring more nature into
+                your everyday life.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="flowers.html" class="hero-btn primary-btn">
+                    🌷 Explore Flowers
+                </a>
+
+                <a href="categories.html" class="hero-btn secondary-btn">
+                    🌿 Browse Categories
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Decorative Flowers -->
+
+        <div class="floating-flower flower-one">
+            🌸
+        </div>
+
+        <div class="floating-flower flower-two">
+            🌼
+        </div>
+
+        <div class="floating-flower flower-three">
+            🌷
+        </div>
+
+        <div class="floating-flower flower-four">
+            🌺
+        </div>
+
+
+        <!-- Butterflies -->
+
+        <div class="floating-butterfly butterfly-one">
+            🦋
+        </div>
+
+        <div class="floating-butterfly butterfly-two">
+            🦋
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
 
     <main>
 
-        <section class="flower-of-day">
 
-            <div class="flower-day-image">
-                🌹
-            </div>
+        <!-- ================= CATEGORIES ================= -->
 
-            <div class="flower-day-content">
+        <section class="categories">
 
-                <span class="section-label">
-                    🌸 FLOWER OF THE DAY
+            <div class="section-title">
+
+                <span>
+                    🌿 EXPLORE
                 </span>
 
-                <h1>Rose</h1>
-
-                <p class="scientific-name">
-                    Rosa • Fragrant • Garden Flower
-                </p>
+                <h2>
+                    Explore by Category
+                </h2>
 
                 <p>
-                    Discover the beauty of roses and learn
-                    how to grow, plant and care for them.
+                    Find beautiful flowers based on their type,
+                    season and special characteristics.
                 </p>
 
-                <a href="flower-details.html" class="explore-btn">
-                    Explore Rose →
+            </div>
+
+
+            <div class="category-grid">
+
+
+                <!-- ROSES -->
+
+                <a href="flower-details/rose.html"
+                   class="category-card rose-card">
+
+                    <div class="category-image">
+
+                        <img
+                            src="images/rose.jpg"
+                            alt="Roses">
+
+                    </div>
+
+                    <div class="category-info">
+
+                        <span>
+                            🌹
+                        </span>
+
+                        <h3>
+                            Roses
+                        </h3>
+
+                        <p>
+                            Fragrant & beautiful
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- SUNFLOWERS -->
+
+                <a href="flower-details/sunflower.html"
+                   class="category-card sunflower-card">
+
+                    <div class="category-image">
+
+                        <img
+                            src="images/sunflower.jpg"
+                            alt="Sunflowers">
+
+                    </div>
+
+                    <div class="category-info">
+
+                        <span>
+                            🌻
+                        </span>
+
+                        <h3>
+                            Sun Flowers
+                        </h3>
+
+                        <p>
+                            Bright & cheerful
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- LOTUS -->
+
+                <a href="flower-details/lotus.html"
+                   class="category-card lotus-card">
+
+                    <div class="category-image">
+
+                        <img
+                            src="images/lotus.jpg"
+                            alt="Lotus">
+
+                    </div>
+
+                    <div class="category-info">
+
+                        <span>
+                            🪷
+                        </span>
+
+                        <h3>
+                            Aquatic Flowers
+                        </h3>
+
+                        <p>
+                            Flowers that love water
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- TULIPS -->
+
+                <a href="flower-details/tulip.html"
+                   class="category-card tulip-card">
+
+                    <div class="category-image">
+
+                        <img
+                            src="images/tulip.jpg"
+                            alt="Tulips">
+
+                    </div>
+
+                    <div class="category-info">
+
+                        <span>
+                            🌷
+                        </span>
+
+                        <h3>
+                            Spring Flowers
+                        </h3>
+
+                        <p>
+                            Beautiful seasonal blooms
+                        </p>
+
+                    </div>
+
                 </a>
 
             </div>
 
         </section>
 
-<!-- ================= CATEGORIES ================= -->
 
-<section class="categories">
-
-    <div class="section-title">
-
-        <span>EXPLORE</span>
-
-        <h2>Explore by Category</h2>
-
-        <p>
-            Discover flowers based on their type,
-            season and characteristics.
-        </p>
-
-    </div>
-
-
-    <div class="category-grid">
-
-        <!-- ROSE -->
-        <a href="flower-details/rose.html" class="category-card">
-
-            <div class="category-icon">
-                🌹
-            </div>
-
-            <h3>Roses</h3>
-
-            <p>Fragrant & beautiful</p>
-
-        </a>
-
-
-        <!-- SUNFLOWER -->
-        <a href="flower-details/sunflower.html" class="category-card">
-
-            <div class="category-icon">
-                🌻
-            </div>
-
-            <h3>Sun Flowers</h3>
-
-            <p>Bright & cheerful</p>
-
-        </a>
-
-
-        <!-- LOTUS -->
-        <a href="flower-details/lotus.html" class="category-card">
-
-            <div class="category-icon">
-                🪷
-            </div>
-
-            <h3>Aquatic</h3>
-
-            <p>Flowers that love water</p>
-
-        </a>
-
-
-        <!-- TULIP -->
-        <a href="flower-details/tulip.html" class="category-card">
-
-            <div class="category-icon">
-                🌷
-            </div>
-
-            <h3>Spring Flowers</h3>
-
-            <p>Beautiful seasonal blooms</p>
-
-        </a>
-
-    </div>
-
-</section>
-
-
-
-        
-
-        <!-- ================= COLLECTION ================= -->
+        <!-- ================= FLORAVERSE COLLECTION ================= -->
 
         <section class="collection">
+
+            <div class="collection-flowers">
+                🌸 🌼 🌷 🌺 🌻
+            </div>
+
 
             <div class="collection-content">
 
@@ -166,15 +307,23 @@
                 </h2>
 
                 <p>
-                    Learn where they grow, how to plant them,
+                    Learn where flowers grow, how to plant them,
                     how to care for them and what makes each
                     flower special.
                 </p>
 
-                <a href="flowers.html" class="explore-btn">
+                <a href="flowers.html"
+                   class="explore-btn">
+
                     Explore All Flowers →
+
                 </a>
 
+            </div>
+
+
+            <div class="collection-leaves">
+                🌿 🍃 🌿
             </div>
 
         </section>
@@ -201,9 +350,11 @@
     </footer>
 
 
+    <!-- ================= SCRIPTS ================= -->
+
     <script src="script.js"></script>
+    <script src="language.js"></script>
 
 </body>
 
 </html>
-```

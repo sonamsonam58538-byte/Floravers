@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cherry Blossom - FloraVerse</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #fff0f6, #ffe4ef);
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .flower-image {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #d94f83;
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .scientific {
+            text-align: center;
+            font-style: italic;
+            color: #777;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .card {
+            background: #fff1f7;
+            padding: 18px;
+            border-radius: 15px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #c83f73;
+        }
+
+        .description {
+            margin-top: 25px;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        .back-btn {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 0;
+            padding: 12px 25px;
+            background: #d94f83;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            background: #b93668;
+        }
+
+        @media (max-width: 600px) {
+            .info {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <img src="../images/cherry-blossom.jpg"
+             alt="Cherry Blossom"
+             class="flower-image">
+
+        <h1>🌸 Cherry Blossom</h1>
+
+        <div class="scientific">
+            Prunus serrulata
+        </div>
+
+        <div class="info">
+
+            <div class="card">
+                <h3>🌿 Category</h3>
+                <p>Tree Flower</p>
+            </div>
+
+            <div class="card">
+                <h3>🎨 Colors</h3>
+                <p>Pink, Light Pink, White</p>
+            </div>
+
+            <div class="card">
+                <h3>🌍 Origin</h3>
+                <p>East Asia</p>
+            </div>
+
+            <div class="card">
+                <h3>🌸 Blooming Season</h3>
+                <p>Spring</p>
+            </div>
+
+        </div>
+
+        <div class="description">
+            <h2>About Cherry Blossom</h2>
+
+            <p>
+                Cherry blossoms are delicate flowers that bloom beautifully
+                during spring. They are especially famous for their stunning
+                displays in Japan and other parts of East Asia.
+            </p>
+
+            <p>
+                The flowers are usually pink or white and appear on trees
+                before the leaves fully develop. Cherry blossoms are often
+                associated with beauty, renewal and the shortness of life.
+            </p>
+        </div>
+
+        <a href="../flowers.html" class="back-btn">
+            ← Back to Flowers
+        </a>
+
+    </div>
+
+</body>
+</html>

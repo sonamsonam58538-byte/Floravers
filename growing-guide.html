@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Growing Guide | FloraVerse</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7faf4;
+            color: #26351f;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .guide-navbar {
+            height: 72px;
+            background: rgba(255,255,255,0.96);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e2eadb;
+            box-shadow: 0 4px 20px rgba(50,80,40,0.06);
+        }
+
+        .guide-logo {
+            text-decoration: none;
+            color: #476b32;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .guide-nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .guide-nav a {
+            text-decoration: none;
+            color: #40533a;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .guide-nav a:hover,
+        .guide-nav a.active {
+            color: #6d963f;
+        }
+
+        /* ================= HERO ================= */
+
+        .guide-hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            padding: 70px 8%;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(247,250,244,0.98) 0%,
+                    rgba(247,250,244,0.92) 38%,
+                    rgba(247,250,244,0.55) 65%,
+                    rgba(247,250,244,0.15) 100%
+                ),
+                url("images/growing-guide-background.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .guide-hero-content {
+            max-width: 650px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .guide-tag {
+            display: inline-block;
+            background: #e7f0dc;
+            color: #5c8039;
+            padding: 9px 17px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .guide-hero h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.05;
+            color: #355329;
+            margin-bottom: 20px;
+        }
+
+        .guide-hero h1 span {
+            color: #789f4d;
+        }
+
+        .guide-hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #56644f;
+            max-width: 590px;
+            margin-bottom: 30px;
+        }
+
+        /* ================= SEARCH ================= */
+
+        .guide-search-box {
+            width: min(620px, 100%);
+            background: white;
+            border: 1px solid #dce7d3;
+            border-radius: 18px;
+            padding: 8px;
+            display: flex;
+            box-shadow: 0 12px 35px rgba(70,100,50,0.12);
+        }
+
+        .guide-search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 15px 16px;
+            font-size: 15px;
+            color: #34452d;
+            background: transparent;
+        }
+
+        .guide-search-box button {
+            border: none;
+            background: #739b49;
+            color: white;
+            padding: 0 24px;
+            border-radius: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .guide-search-box button:hover {
+            background: #5e8438;
+        }
+
+        .search-results {
+            margin-top: 10px;
+            width: min(620px, 100%);
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 12px 30px rgba(50,80,40,0.12);
+            overflow: hidden;
+            display: none;
+        }
+
+        .search-result {
+            padding: 14px 18px;
+            border-bottom: 1px solid #edf1e9;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .search-result:last-child {
+            border-bottom: none;
+        }
+
+        .search-result:hover {
+            background: #f0f6e9;
+        }
+
+        .search-result strong {
+            color: #456632;
+        }
+
+        .search-result small {
+            display: block;
+            color: #82907b;
+            margin-top: 4px;
+        }
+
+        /* ================= SECTION ================= */
+
+        .guide-section {
+            padding: 75px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 45px;
+        }
+
+        .section-heading span {
+            color: #759b4b;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: 38px;
+            color: #344d2b;
+            margin: 10px 0 14px;
+        }
+
+        .section-heading p {
+            color: #697764;
+            line-height: 1.7;
+        }
+
+        /* ================= QUICK GUIDES ================= */
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .quick-card {
+            background: white;
+            border: 1px solid #e0e9d9;
+            border-radius: 22px;
+            padding: 28px 23px;
+            min-height: 205px;
+            box-shadow: 0 8px 25px rgba(60,90,45,0.07);
+            transition: 0.3s;
+        }
+
+        .quick-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(60,90,45,0.12);
+        }
+
+        .quick-icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: #edf5e7;
+            font-size: 27px;
+            margin-bottom: 18px;
+        }
+
+        .quick-card h3 {
+            color: #3e5d31;
+            margin-bottom: 9px;
+            font-size: 19px;
+        }
+
+        .quick-card p {
+            color: #71806c;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* ================= MAIN GUIDE ================= */
+
+        .guide-main {
+            background: #eef4e8;
+        }
+
+        .guide-content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .guide-info-card {
+            background: white;
+            border: 1px solid #dfe9d8;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(50,80,40,0.06);
+        }
+
+        .guide-info-card h3 {
+            color: #3d5c30;
+            font-size: 22px;
+            margin-bottom: 14px;
+        }
+
+        .guide-info-card p {
+            color: #657360;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .guide-info-card ul {
+            padding-left: 20px;
+            color: #61705d;
+            line-height: 1.9;
+        }
+
+        .guide-info-card li::marker {
+            color: #789c4c;
+        }
+
+        /* ================= FLOWER GUIDES ================= */
+
+        .flower-guides {
+            background: #fbfcf9;
+        }
+
+        .flower-guide-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .flower-guide-card {
+            background: white;
+            border: 1px solid #e1e9dc;
+            border-radius: 20px;
+            padding: 23px;
+            transition: 0.3s;
+        }
+
+        .flower-guide-card:hover {
+            transform: translateY(-5px);
+            border-color: #bfd3ad;
+        }
+
+        .flower-guide-card .flower-icon {
+            font-size: 35px;
+            margin-bottom: 13px;
+        }
+
+        .flower-guide-card h3 {
+            color: #3f5e32;
+            margin-bottom: 8px;
+        }
+
+        .flower-guide-card p {
+            color: #71806c;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .flower-guide-card button {
+            border: none;
+            background: #edf4e7;
+            color: #58773d;
+            padding: 9px 14px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .flower-guide-card button:hover {
+            background: #dcebd1;
+        }
+
+        /* ================= FLOWER RESULT ================= */
+
+        .selected-guide {
+            display: none;
+            max-width: 1000px;
+            margin: 40px auto 0;
+            background: white;
+            border: 1px solid #dbe6d3;
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 12px 35px rgba(60,90,45,0.09);
+        }
+
+        .selected-guide h3 {
+            color: #38572d;
+            font-size: 29px;
+            margin-bottom: 15px;
+        }
+
+        .selected-guide p {
+            color: #687566;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .selected-guide-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .guide-detail {
+            background: #f1f6ed;
+            padding: 18px;
+            border-radius: 15px;
+        }
+
+        .guide-detail strong {
+            display: block;
+            color: #54763a;
+            margin-bottom: 7px;
+        }
+
+        .guide-detail span {
+            color: #667360;
+            font-size: 14px;
+        }
+
+        /* ================= FIND GUIDE ================= */
+
+        .find-guide {
+            background: #edf4e8;
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .help-button {
+            border: 1px solid #dbe7d2;
+            background: white;
+            border-radius: 18px;
+            padding: 24px 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .help-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(50,80,40,0.10);
+        }
+
+        .help-button div {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .help-button strong {
+            color: #466536;
+        }
+
+        /* ================= SEASONS ================= */
+
+        .season-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .season-card {
+            border-radius: 22px;
+            padding: 30px;
+            background: white;
+            border: 1px solid #e0e8da;
+            box-shadow: 0 7px 22px rgba(50,80,40,0.06);
+        }
+
+        .season-card h3 {
+            color: #466333;
+            margin-bottom: 12px;
+        }
+
+        .season-card p {
+            color: #6b7867;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* ================= PROBLEMS ================= */
+
+        .problem-section {
+            background: #f8faf6;
+        }
+
+        .problem-grid {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .problem-card {
+            background: white;
+            border: 1px solid #e2e9dd;
+            border-radius: 17px;
+            padding: 20px;
+        }
+
+        .problem-card strong {
+            color: #4a663a;
+        }
+
+        .problem-card p {
+            margin-top: 7px;
+            color: #707d6b;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        .guide-footer {
+            background: #3d5631;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .guide-footer h2 {
+            margin-bottom: 10px;
+        }
+
+        .guide-footer p {
+            color: #dbe6d3;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1100px) {
+
+            .quick-grid,
+            .flower-guide-grid,
+            .season-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .help-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+
+            .guide-navbar {
+                padding: 0 4%;
+            }
+
+            .guide-nav {
+                gap: 14px;
+            }
+
+            .guide-nav a {
+                font-size: 13px;
+            }
+
+            .guide-hero {
+                padding: 60px 6%;
+            }
+
+            .guide-content-grid,
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .selected-guide-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .guide-navbar {
+                height: auto;
+                padding: 17px 5%;
+                flex-direction: column;
+                gap: 13px;
+            }
+
+            .guide-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .guide-hero {
+                min-height: 600px;
+            }
+
+            .guide-hero h1 {
+                font-size: 45px;
+            }
+
+            .guide-search-box {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .guide-search-box button {
+                height: 48px;
+            }
+
+            .quick-grid,
+            .flower-guide-grid,
+            .season-grid,
+            .help-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-section {
+                padding: 55px 5%;
+            }
+
+            .section-heading h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="guide-navbar">
+
+    <a href="index.html" class="guide-logo">
+        🌿 FloraVerse
+    </a>
+
+    <nav class="guide-nav">
+        <a href="index.html">Home</a>
+        <a href="flowers.html">Flowers</a>
+        <a href="categories.html">Categories</a>
+        <a href="growing-guide.html" class="active">Growing Guide</a>
+        <a href="login.html">Login</a>
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="guide-hero">
+
+    <div class="guide-hero-content">
+
+        <span class="guide-tag">
+            🌿 FLORAVERSE GROWING GUIDE
+        </span>
+
+        <h1>
+            Grow Better.<br>
+            <span>Bloom Beautifully.</span>
+        </h1>
+
+        <p>
+            Discover simple and practical flower-growing guidance.
+            Learn about sunlight, watering, soil, nutrition, seasons,
+            containers and everyday flower care.
+        </p>
+
+        <div class="guide-search-box">
+
+            <input
+                type="text"
+                id="flowerSearch"
+                placeholder="🔎 Search a flower, e.g. Rose, Sunflower..."
+                autocomplete="off"
+            >
+
+            <button onclick="searchFlower()">
+                Search
+            </button>
+
+        </div>
+
+        <div class="search-results" id="searchResults"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= QUICK GUIDES ================= -->
+
+<section class="guide-section">
+
+    <div class="section-heading">
+
+        <span>QUICK START</span>
+
+        <h2>Essential Growing Guides</h2>
+
+        <p>
+            Start with the basics every flower grower should understand.
+        </p>
+
+    </div>
+
+
+    <div class="quick-grid">
+
+        <div class="quick-card">
+            <div class="quick-icon">☀️</div>
+            <h3>Sunlight Guide</h3>
+            <p>
+                Understand how much light flowers need and how to choose
+                the right growing location.
+            </p>
+        </div>
+
+
+        <div class="quick-card">
+            <div class="quick-icon">💧</div>
+            <h3>Watering Guide</h3>
+            <p>
+                Learn how to maintain healthy moisture without making
+                the soil constantly wet.
+            </p>
+        </div>
+
+
+        <div class="quick-card">
+            <div class="quick-icon">🌍</div>
+            <h3>Soil Guide</h3>
+            <p>
+                Explore basic soil types, drainage and the qualities
+                that help flowers grow well.
+            </p>
+        </div>
+
+
+        <div class="quick-card">
+            <div class="quick-icon">🌾</div>
+            <h3>Nutrition Guide</h3>
+            <p>
+                Understand the role of nutrients and why balanced
+                feeding supports healthy growth.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GENERAL GUIDE ================= -->
+
+<section class="guide-section guide-main">
+
+    <div class="section-heading">
+
+        <span>GROWING BASICS</span>
+
+        <h2>Everything Your Flowers Need</h2>
+
+        <p>
+            Build a strong foundation by understanding the environment
+            around your plants.
+        </p>
+
+    </div>
+
+
+    <div class="guide-content-grid">
+
+
+        <div class="guide-info-card">
+
+            <h3>🌱 Planting Guide</h3>
+
+            <p>
+                Good planting starts with the right location, healthy
+                soil and enough space for roots to develop.
+            </p>
+
+            <ul>
+                <li>Choose a suitable location.</li>
+                <li>Use soil with good drainage.</li>
+                <li>Give plants enough growing space.</li>
+                <li>Plant according to the flower's requirements.</li>
+            </ul>
+
+        </div>
+
+
+        <div class="guide-info-card">
+
+            <h3>☀️ Understanding Sunlight</h3>
+
+            <p>
+                Light affects growth, leaf development and flowering.
+                Different flowers prefer different levels of sunlight.
+            </p>
+
+            <ul>
+                <li>Observe how much direct light your space receives.</li>
+                <li>Place sun-loving plants in brighter locations.</li>
+                <li>Protect shade-loving flowers from harsh exposure.</li>
+                <li>Watch plants for signs of light stress.</li>
+            </ul>
+
+        </div>
+
+
+        <div class="guide-info-card">
+
+            <h3>💧 Watering Flowers</h3>
+
+            <p>
+                Watering should depend on the plant, soil and weather
+                rather than following one fixed schedule.
+            </p>
+
+            <ul>
+                <li>Check the soil before watering.</li>
+                <li>Avoid constantly soggy soil.</li>
+                <li>Containers may dry faster than garden beds.</li>
+                <li>Adjust watering during hot or rainy periods.</li>
+            </ul>
+
+        </div>
+
+
+        <div class="guide-info-card">
+
+            <h3>🌍 Soil & Drainage</h3>
+
+            <p>
+                Healthy roots need both moisture and access to air.
+                Good drainage helps prevent waterlogged soil.
+            </p>
+
+            <ul>
+                <li>Use suitable soil for the flower.</li>
+                <li>Make sure excess water can escape.</li>
+                <li>Avoid compacted soil.</li>
+                <li>Refresh container soil when needed.</li>
+            </ul>
+
+        </div>
+
+
+        <div class="guide-info-card">
+
+            <h3>🌾 Fertilizer & Nutrition</h3>
+
+            <p>
+                Plants use nutrients for leaves, roots and flowers.
+                Feeding should always match the plant's needs.
+            </p>
+
+            <ul>
+                <li>Follow the product label when using fertilizer.</li>
+                <li>Avoid overfeeding plants.</li>
+                <li>Healthy soil supports long-term growth.</li>
+                <li>Consider the plant's growth stage.</li>
+            </ul>
+
+        </div>
+
+
+        <div class="guide-info-card">
+
+            <h3>✂️ Flower Care</h3>
+
+            <p>
+                Regular observation and simple maintenance can keep
+                flowers looking healthy throughout their growing season.
+            </p>
+
+            <ul>
+                <li>Remove damaged plant material carefully.</li>
+                <li>Keep growing areas clean.</li>
+                <li>Support tall or climbing plants when needed.</li>
+                <li>Observe plants regularly.</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FLOWER GUIDES ================= -->
+
+<section class="guide-section flower-guides">
+
+    <div class="section-heading">
+
+        <span>FLOWER SPECIFIC</span>
+
+        <h2>Popular Flower Growing Guides</h2>
+
+        <p>
+            Select a flower to see its basic growing requirements.
+        </p>
+
+    </div>
+
+
+    <div class="flower-guide-grid">
+
+
+        <div class="flower-guide-card">
+            <div class="flower-icon">🌹</div>
+            <h3>Rose</h3>
+            <p>Learn about sunlight, watering, soil and basic rose care.</p>
+            <button onclick="showFlowerGuide('Rose')">View Guide</button>
+        </div>
+
+
+        <div class="flower-guide-card">
+            <div class="flower-icon">🌻</div>
+            <h3>Sunflower</h3>
+            <p>Explore the growing needs of bright, sun-loving sunflowers.</p>
+            <button onclick="showFlowerGuide('Sunflower')">View Guide</button>
+        </div>
+
+
+        <div class="flower-guide-card">
+            <div class="flower-icon">🪷</div>
+            <h3>Lotus</h3>
+            <p>Discover the special growing environment required by lotus.</p>
+            <button onclick="showFlowerGuide('Lotus')">View Guide</button>
+        </div>
+
+
+        <div class="flower-guide-card">
+            <div class="flower-icon">🌼</div>
+            <h3>Daisy</h3>
+            <p>Learn the basic care requirements of cheerful daisies.</p>
+            <button onclick="showFlowerGuide('Daisy')">View Guide</button>
+        </div>
+
+
+        <div class="flower-guide-card">
+            <div class="flower-icon">🌺</div>
+            <h3>Hibiscus</h3>
+            <p>Explore sunlight, watering and care for hibiscus plants.</p>
+            <button onclick="showFlowerGuide('Hibiscus')">View Guide</button>
+        </div>
+
+
+        <div class="flower-guide-card">
+            <div class="flower-icon">🌸</div>
+            <h3>Jasmine</h3>
+            <p>Learn about growing fragrant jasmine in suitable conditions.</p>
+            <button onclick="showFlowerGuide('Jasmine')">View Guide</button>
+        </div>
+
+
+        <div class="flower-guide-card">
+            <div class="flower-icon">💜</div>
+            <h3>Lavender</h3>
+            <p>Understand the growing conditions lavender prefers.</p>
+            <button onclick="showFlowerGuide('Lavender')">View Guide</button>
+        </div>
+
+
+        <div class="flower-guide-card">
+            <div class="flower-icon">🌷</div>
+            <h3>Tulip</h3>
+            <p>Discover the basic requirements for growing tulips.</p>
+            <button onclick="showFlowerGuide('Tulip')">View Guide</button>
+        </div>
+
+    </div>
+
+
+    <div class="selected-guide" id="selectedGuide"></div>
+
+</section>
+
+
+<!-- ================= FIND THE RIGHT GUIDE ================= -->
+
+<section class="guide-section find-guide">
+
+    <div class="section-heading">
+
+        <span>QUICK HELP</span>
+
+        <h2>Find the Right Guide</h2>
+
+        <p>
+            Not sure where to start? Choose what you want help with.
+        </p>
+
+    </div>
+
+
+    <div class="help-grid">
+
+        <button class="help-button" onclick="scrollToSection('watering')">
+            <div>💧</div>
+            <strong>Watering</strong>
+        </button>
+
+        <button class="help-button" onclick="scrollToSection('sunlight')">
+            <div>☀️</div>
+            <strong>Sunlight</strong>
+        </button>
+
+        <button class="help-button" onclick="scrollToSection('soil')">
+            <div>🌍</div>
+            <strong>Soil</strong>
+        </button>
+
+        <button class="help-button" onclick="scrollToSection('problems')">
+            <div>🐛</div>
+            <strong>Plant Problems</strong>
+        </button>
+
+        <button class="help-button" onclick="scrollToSection('flowering')">
+            <div>🌸</div>
+            <strong>Flowering</strong>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SEASONAL CARE ================= -->
+
+<section class="guide-section">
+
+    <div class="section-heading">
+
+        <span>SEASONAL CARE</span>
+
+        <h2>Care Through the Seasons</h2>
+
+        <p>
+            Growing conditions change throughout the year, so plant
+            care should change with them.
+        </p>
+
+    </div>
+
+
+    <div class="season-grid">
+
+        <div class="season-card">
+            <h3>🌷 Spring</h3>
+            <p>
+                Spring is a common growing period for many flowers.
+                Focus on fresh growth, suitable planting conditions
+                and gradually increasing care as plants develop.
+            </p>
+        </div>
+
+
+        <div class="season-card">
+            <h3>☀️ Summer</h3>
+            <p>
+                Monitor soil moisture and heat exposure. Containers
+                can dry more quickly during warm weather.
+            </p>
+        </div>
+
+
+        <div class="season-card">
+            <h3>🍂 Autumn</h3>
+            <p>
+                As temperatures change, observe growth and adjust
+                watering and placement according to the plant.
+            </p>
+        </div>
+
+
+        <div class="season-card">
+            <h3>❄️ Winter</h3>
+            <p>
+                Many plants grow more slowly during colder periods.
+                Avoid treating winter plants exactly like summer plants.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROBLEMS ================= -->
+
+<section class="guide-section problem-section" id="problems">
+
+    <div class="section-heading">
+
+        <span>PLANT PROBLEMS</span>
+
+        <h2>Common Growing Problems</h2>
+
+        <p>
+            Learn what to observe when your plant does not look healthy.
+        </p>
+
+    </div>
+
+
+    <div class="problem-grid">
+
+        <div class="problem-card">
+            <strong>🍃 Yellow Leaves</strong>
+            <p>
+                Check watering, light, drainage and the overall condition
+                of the plant before making changes.
+            </p>
+        </div>
+
+
+        <div class="problem-card">
+            <strong>🌱 Slow Growth</strong>
+            <p>
+                Review sunlight, soil condition, watering and available
+                growing space.
+            </p>
+        </div>
+
+
+        <div class="problem-card">
+            <strong>🌸 Few Flowers</strong>
+            <p>
+                Flowering can depend on light, plant maturity, season,
+                nutrition and general plant health.
+            </p>
+        </div>
+
+
+        <div class="problem-card">
+            <strong>🐛 Pest Signs</strong>
+            <p>
+                Inspect leaves and stems regularly. Separate affected
+                plants when appropriate and use only suitable treatments
+                according to their labels.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FLOWERING ================= -->
+
+<section class="guide-section" id="flowering">
+
+    <div class="section-heading">
+
+        <span>BETTER BLOOMS</span>
+
+        <h2>Helping Flowers Bloom</h2>
+
+        <p>
+            Healthy flowering starts with understanding the needs of
+            the particular plant rather than using one method for every flower.
+        </p>
+
+    </div>
+
+
+    <div class="guide-content-grid">
+
+        <div class="guide-info-card">
+            <h3>☀️ Give Suitable Light</h3>
+            <p>
+                Make sure the flower receives the amount of light it
+                naturally prefers.
+            </p>
+        </div>
+
+        <div class="guide-info-card">
+            <h3>💧 Maintain Balanced Watering</h3>
+            <p>
+                Avoid both prolonged dryness and constantly waterlogged soil.
+            </p>
+        </div>
+
+        <div class="guide-info-card">
+            <h3>🌍 Support Healthy Roots</h3>
+            <p>
+                Good drainage and suitable soil help create a better
+                environment for root development.
+            </p>
+        </div>
+
+        <div class="guide-info-card">
+            <h3>🌸 Be Patient</h3>
+            <p>
+                Flowering depends on the plant species, season, maturity
+                and growing conditions.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="guide-footer">
+
+    <h2>🌿 FloraVerse</h2>
+
+    <p>
+        Grow • Care • Bloom
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    const flowerGuides = {
+
+        "Rose": {
+            sunlight: "Bright light with suitable direct sunlight.",
+            water: "Water when the soil begins to dry; avoid constantly soggy soil.",
+            soil: "Rich, well-draining soil.",
+            care: "Regular observation, suitable feeding and careful pruning can support healthy growth.",
+            tip: "Good air circulation around the plant is helpful."
+        },
+
+        "Sunflower": {
+            sunlight: "Sunflowers generally prefer a bright, sunny growing location.",
+            water: "Keep the soil reasonably moist while plants establish.",
+            soil: "Well-draining soil with enough space for roots.",
+            care: "Provide support when tall plants need it.",
+            tip: "Give tall varieties enough space."
+        },
+
+        "Lotus": {
+            sunlight: "Lotus generally prefers strong sunlight.",
+            water: "Lotus requires a water-based growing environment.",
+            soil: "Suitable aquatic planting medium is preferred.",
+            care: "Provide enough space for leaves and aquatic growth.",
+            tip: "Lotus is different from ordinary garden flowers because it grows in water."
+        },
+
+        "Daisy": {
+            sunlight: "Bright light is generally beneficial.",
+            water: "Keep soil moderately moist while avoiding waterlogging.",
+            soil: "Well-draining garden soil.",
+            care: "Remove damaged flowers and leaves when appropriate.",
+            tip: "Regular observation helps maintain healthy growth."
+        },
+
+        "Hibiscus": {
+            sunlight: "Bright light and suitable sunlight support growth and flowering.",
+            water: "Keep the soil reasonably moist but well drained.",
+            soil: "Fertile, well-draining soil.",
+            care: "Monitor growth regularly and remove damaged parts carefully.",
+            tip: "Protect plants from unsuitable environmental extremes."
+        },
+
+        "Jasmine": {
+            sunlight: "Bright light is useful for healthy growth.",
+            water: "Water according to soil moisture and weather.",
+            soil: "Well-draining soil with organic matter.",
+            care: "Provide support for climbing varieties.",
+            tip: "Good light and suitable support can encourage healthy growth."
+        },
+
+        "Lavender": {
+            sunlight: "Lavender generally prefers plenty of sunlight.",
+            water: "Allow the soil to dry somewhat between watering.",
+            soil: "Well-draining soil is especially important.",
+            care: "Avoid keeping the roots constantly wet.",
+            tip: "Good drainage is one of the most important considerations."
+        },
+
+        "Tulip": {
+            sunlight: "Choose a location with suitable bright light.",
+            water: "Avoid excessive watering and waterlogged soil.",
+            soil: "Loose, well-draining soil.",
+            care: "Growing conditions depend strongly on the season and variety.",
+            tip: "Tulips have specific seasonal growing requirements."
+        },
+
+        "Marigold": {
+            sunlight: "Bright sunlight generally supports healthy growth.",
+            water: "Water when the soil begins to dry.",
+            soil: "Well-draining soil.",
+            care: "Remove damaged flowers to keep plants tidy.",
+            tip: "Avoid prolonged waterlogging."
+        }
+    };
+
+
+    const allFlowers = [
+        "Rose",
+        "Sunflower",
+        "Lotus",
+        "Tulip",
+        "Marigold",
+        "Orchid",
+        "Jasmine",
+        "Lily",
+        "Carnation",
+        "Daffodil",
+        "Daisy",
+        "Hibiscus",
+        "Lavender",
+        "Magnolia",
+        "Peony",
+        "Coreopsis",
+        "Cherry Blossom",
+        "Dandelion",
+        "Poppy",
+        "Iris",
+        "Cosmos",
+        "Gerbera",
+        "Zinnia",
+        "Dahlia",
+        "Chrysanthemum",
+        "Gardenia",
+        "Plumeria",
+        "Periwinkle",
+        "Snapdragon",
+        "Morning Glory",
+        "Bluebell",
+        "Freesia",
+        "Jasmine Sambac",
+        "Bougainvillea",
+        "Petunia",
+        "Begonia",
+        "Camellia",
+        "Azalea",
+        "Anemone",
+        "Aster",
+        "Calendula",
+        "Calla Lily",
+        "Foxglove",
+        "Gladiolus",
+        "Heather",
+        "Honeysuckle",
+        "Hydrangea",
+        "Impatiens",
+        "Lilac",
+        "Nasturtium",
+        "Pansy",
+        "Primrose",
+        "Ranunculus",
+        "Rhododendron",
+        "Sweet Pea",
+        "Violet",
+        "Wisteria",
+        "Yarrow",
+        "Amaryllis",
+        "Bird of Paradise",
+        "Bleeding Heart",
+        "Buttercup",
+        "Columbine",
+        "Crocus",
+        "Delphinium",
+        "Edelweiss",
+        "Forget-Me-Not",
+        "Fuchsia",
+        "Hibiscus Mutabilis",
+        "Hollyhock",
+        "Jacaranda",
+        "Lantana",
+        "Lupine",
+        "Mimosa",
+        "Narcissus",
+        "Oleander",
+        "Passion Flower",
+        "Queen Anne's Lace",
+        "Salvia",
+        "Snowdrop",
+        "Statice",
+        "Tuberose",
+        "Verbena",
+        "Wallflower",
+        "Water Lily",
+        "Cosmos Sulphureus",
+        "Fox and Cubs",
+        "Goldenrod",
+        "Morning Glory Blue",
+        "Moonflower",
+        "Nasturtium Yellow",
+        "Poinsettia",
+        "Protea",
+        "Saffron Crocus",
+        "Sea Holly",
+        "Star Jasmine",
+        "Torch Ginger",
+        "Trumpet Vine",
+        "Wild Rose",
+        "Winter Jasmine"
+    ];
+
+
+    const searchInput = document.getElementById("flowerSearch");
+    const searchResults = document.getElementById("searchResults");
+
+
+    searchInput.addEventListener("input", function () {
+
+        const value = this.value.trim().toLowerCase();
+
+        searchResults.innerHTML = "";
+
+        if (!value) {
+            searchResults.style.display = "none";
+            return;
+        }
+
+        const matches = allFlowers
+            .filter(flower =>
+                flower.toLowerCase().includes(value)
+            )
+            .slice(0, 8);
+
+
+        if (matches.length === 0) {
+
+            searchResults.innerHTML = `
+                <div class="search-result">
+                    <strong>No flower found</strong>
+                    <small>Try another flower name.</small>
+                </div>
+            `;
+
+            searchResults.style.display = "block";
+            return;
+        }
+
+
+        matches.forEach(flower => {
+
+            const item = document.createElement("div");
+
+            item.className = "search-result";
+
+            item.innerHTML = `
+                <strong>🌸 ${flower}</strong>
+                <small>View growing guide</small>
+            `;
+
+            item.onclick = function () {
+
+                searchInput.value = flower;
+
+                searchResults.style.display = "none";
+
+                showFlowerGuide(flower);
+
+            };
+
+            searchResults.appendChild(item);
+
+        });
+
+
+        searchResults.style.display = "block";
+
+    });
+
+
+    function searchFlower() {
+
+        const value = searchInput.value.trim();
+
+        if (!value) {
+            searchInput.focus();
+            return;
+        }
+
+        const match = allFlowers.find(
+            flower => flower.toLowerCase() === value.toLowerCase()
+        );
+
+        if (match) {
+
+            searchInput.value = match;
+
+            searchResults.style.display = "none";
+
+            showFlowerGuide(match);
+
+        } else {
+
+            const partial = allFlowers.find(
+                flower =>
+                    flower.toLowerCase().includes(value.toLowerCase())
+            );
+
+            if (partial) {
+
+                searchInput.value = partial;
+
+                searchResults.style.display = "none";
+
+                showFlowerGuide(partial);
+
+            } else {
+
+                alert("Flower not found. Try another name.");
+
+            }
+
+        }
+
+    }
+
+
+    function showFlowerGuide(flowerName) {
+
+        const selectedGuide =
+            document.getElementById("selectedGuide");
+
+        const guide =
+            flowerGuides[flowerName];
+
+
+        if (!guide) {
+
+            selectedGuide.innerHTML = `
+
+                <h3>🌸 ${flowerName}</h3>
+
+                <p>
+                    A detailed growing guide for
+                    <strong>${flowerName}</strong>
+                    is coming soon to FloraVerse.
+                </p>
+
+                <div class="selected-guide-grid">
+
+                    <div class="guide-detail">
+                        <strong>🌱 Growing Guide</strong>
+                        <span>Detailed information coming soon.</span>
+                    </div>
+
+                    <div class="guide-detail">
+                        <strong>🔎 What to Check</strong>
+                        <span>Light, water, soil and seasonal conditions.</span>
+                    </div>
+
+                    <div class="guide-detail">
+                        <strong>🌿 FloraVerse</strong>
+                        <span>More flower guides will be added.</span>
+                    </div>
+
+                </div>
+
+            `;
+
+        } else {
+
+            selectedGuide.innerHTML = `
+
+                <h3>🌸 ${flowerName} Growing Guide</h3>
+
+                <p>
+                    Here are the basic growing requirements for
+                    <strong>${flowerName}</strong>.
+                </p>
+
+                <div class="selected-guide-grid">
+
+                    <div class="guide-detail">
+                        <strong>☀️ Sunlight</strong>
+                        <span>${guide.sunlight}</span>
+                    </div>
+
+                    <div class="guide-detail">
+                        <strong>💧 Water</strong>
+                        <span>${guide.water}</span>
+                    </div>
+
+                    <div class="guide-detail">
+                        <strong>🌍 Soil</strong>
+                        <span>${guide.soil}</span>
+                    </div>
+
+                    <div class="guide-detail">
+                        <strong>✂️ Care</strong>
+                        <span>${guide.care}</span>
+                    </div>
+
+                    <div class="guide-detail">
+                        <strong>💡 Growing Tip</strong>
+                        <span>${guide.tip}</span>
+                    </div>
+
+                    <div class="guide-detail">
+                        <strong>🌸 Flowering</strong>
+                        <span>
+                            Flowering depends on variety, maturity,
+                            season and growing conditions.
+                        </span>
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+
+        selectedGuide.style.display = "block";
+
+        selectedGuide.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+    function scrollToSection(type) {
+
+        if (type === "watering" ||
+            type === "sunlight" ||
+            type === "soil") {
+
+            document
+                .querySelector(".guide-main")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            return;
+        }
+
+
+        if (type === "problems") {
+
+            document
+                .getElementById("problems")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            return;
+        }
+
+
+        if (type === "flowering") {
+
+            document
+                .getElementById("flowering")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+    }
+
+
+    document.addEventListener("click", function(event) {
+
+        if (
+            !event.target.closest(".guide-search-box") &&
+            !event.target.closest(".search-results")
+        ) {
+            searchResults.style.display = "none";
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

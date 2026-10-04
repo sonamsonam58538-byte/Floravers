@@ -1,0 +1,2235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Categories | FloraVerse</title>
+
+    <meta
+        name="description"
+        content="Explore flower categories and discover beautiful flowers with FloraVerse."
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fbf3;
+            color: #30451d;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #e1e8d7;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #536d2c;
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: .5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #53634a;
+            font-size: 15px;
+            font-weight: 600;
+            transition: .25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #7b9b45;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .categories-hero {
+            min-height: 430px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.97) 0%,
+                    rgba(255,255,255,.86) 32%,
+                    rgba(255,255,255,.48) 58%,
+                    rgba(255,255,255,0) 100%
+                ),
+                url("images/categories-background.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+
+            padding: 60px 8%;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+
+            padding: 8px 15px;
+
+            background: #edf3df;
+            color: #627b3a;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+
+            margin-bottom: 18px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(42px, 6vw, 70px);
+            line-height: 1;
+            margin-bottom: 20px;
+            color: #30451d;
+        }
+
+        .hero-content p {
+            max-width: 540px;
+
+            font-size: 17px;
+            line-height: 1.7;
+
+            color: #65745c;
+
+            margin-bottom: 28px;
+        }
+
+        .back-btn {
+            display: inline-block;
+
+            padding: 13px 23px;
+
+            background: #7b9b45;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: .25s ease;
+        }
+
+        .back-btn:hover {
+            background: #536d2c;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           SEARCH SECTION
+        ========================= */
+
+        .search-section {
+            padding: 65px 20px 35px;
+
+            text-align: center;
+
+            background: #ffffff;
+        }
+
+        .search-title span {
+            color: #7b9b45;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+        .search-title h2 {
+            margin-top: 9px;
+            margin-bottom: 10px;
+
+            font-size: 34px;
+
+            color: #30451d;
+        }
+
+        .search-title p {
+            color: #718066;
+
+            font-size: 15px;
+
+            margin-bottom: 28px;
+        }
+
+        /* SEARCH BOX */
+
+        .search-wrapper {
+            position: relative;
+
+            width: min(680px, 100%);
+
+            margin: auto;
+        }
+
+        .search-box {
+            width: 100%;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+
+            background: #f8faf3;
+
+            border: 1px solid #dce6c8;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 25px rgba(80,100,50,.08);
+
+            transition: .25s ease;
+        }
+
+        .search-box:focus-within {
+            border-color: #7b9b45;
+
+            box-shadow:
+                0 10px 30px rgba(80,100,50,.14);
+        }
+
+        .search-icon {
+            width: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 20px;
+        }
+
+        #categorySearch {
+            flex: 1;
+
+            height: 100%;
+
+            border: none;
+            outline: none;
+
+            background: transparent;
+
+            font-size: 16px;
+
+            color: #30451d;
+        }
+
+        #categorySearch::placeholder {
+            color: #9aa693;
+        }
+
+        .clear-search {
+            width: 42px;
+            height: 42px;
+
+            margin-right: 8px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: transparent;
+
+            color: #81916f;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            display: none;
+
+            transition: .2s ease;
+        }
+
+        .clear-search:hover {
+            background: #e8efd9;
+        }
+
+        /* =========================
+           SUGGESTIONS
+        ========================= */
+
+        .search-suggestions {
+            position: absolute;
+
+            top: 68px;
+
+            left: 0;
+            right: 0;
+
+            background: white;
+
+            border: 1px solid #dce6c8;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 35px rgba(60,80,40,.15);
+
+            overflow: hidden;
+
+            z-index: 500;
+
+            display: none;
+
+            text-align: left;
+        }
+
+        .suggestion-item {
+            width: 100%;
+
+            padding: 14px 18px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+
+            cursor: pointer;
+
+            border-bottom: 1px solid #eef2e8;
+
+            transition: .2s ease;
+        }
+
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+
+        .suggestion-item:hover {
+            background: #f1f6e8;
+        }
+
+        .suggestion-icon {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 13px;
+
+            background: #edf3df;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 21px;
+
+            flex-shrink: 0;
+        }
+
+        .suggestion-info {
+            min-width: 0;
+        }
+
+        .suggestion-info strong {
+            display: block;
+
+            color: #30451d;
+
+            font-size: 15px;
+
+            margin-bottom: 4px;
+        }
+
+        .suggestion-info small {
+            display: block;
+
+            color: #7a8970;
+
+            font-size: 12px;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .suggestion-type {
+            margin-left: auto;
+
+            padding: 5px 9px;
+
+            border-radius: 20px;
+
+            background: #f0f5e7;
+
+            color: #6c824b;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            flex-shrink: 0;
+        }
+
+        .no-results {
+            padding: 25px;
+
+            text-align: center;
+
+            color: #7a8970;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           CATEGORY SECTION
+        ========================= */
+
+        .categories-section {
+            padding: 45px 7% 80px;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            margin-bottom: 40px;
+        }
+
+        .section-heading span {
+            color: #7b9b45;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            margin-top: 8px;
+
+            font-size: 36px;
+
+            color: #30451d;
+        }
+
+        .section-heading p {
+            margin-top: 10px;
+
+            color: #718066;
+
+            font-size: 15px;
+        }
+
+        /* =========================
+           CATEGORY GROUP
+        ========================= */
+
+        .category-group {
+            margin-bottom: 55px;
+        }
+
+        .category-group-title {
+            margin-bottom: 20px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .category-group-title h3 {
+            font-size: 21px;
+
+            color: #536d2c;
+        }
+
+        .category-group-title span {
+            font-size: 20px;
+        }
+
+        /* =========================
+           CATEGORY GRID
+        ========================= */
+
+        .category-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 22px;
+        }
+
+        .category-card {
+            min-height: 150px;
+
+            padding: 25px 22px;
+
+            background: white;
+
+            border: 1px solid #dce6c8;
+
+            border-radius: 22px;
+
+            text-decoration: none;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            box-shadow:
+                0 7px 22px rgba(80,100,50,.07);
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease,
+                border-color .3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-6px);
+
+            border-color: #a9bd80;
+
+            box-shadow:
+                0 15px 32px rgba(80,100,50,.13);
+        }
+
+        .category-card-icon {
+            width: 52px;
+            height: 52px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #edf3df;
+
+            border-radius: 16px;
+
+            font-size: 27px;
+
+            margin-bottom: 18px;
+        }
+
+        .category-card h4 {
+            font-size: 17px;
+
+            color: #30451d;
+
+            margin-bottom: 7px;
+        }
+
+        .category-card p {
+            color: #819077;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+        .category-arrow {
+            margin-top: 17px;
+
+            color: #7b9b45;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #536d2c;
+
+            color: white;
+
+            padding: 28px 20px;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1100px) {
+
+            .category-grid {
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+            }
+
+        }
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                padding: 16px 5%;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .categories-hero {
+                min-height: 390px;
+                padding: 50px 7%;
+            }
+
+            .category-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .categories-hero {
+                min-height: 400px;
+
+                background:
+                    linear-gradient(
+                        rgba(255,255,255,.88),
+                        rgba(255,255,255,.92)
+                    ),
+                    url("images/categories-background.jpg");
+
+                background-size: cover;
+                background-position: center;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-content p {
+                font-size: 15px;
+            }
+
+            .search-section {
+                padding: 45px 16px 25px;
+            }
+
+            .search-title h2 {
+                font-size: 27px;
+            }
+
+            .category-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap: 14px;
+            }
+
+            .category-card {
+                min-height: 145px;
+
+                padding: 18px;
+            }
+
+            .category-card-icon {
+                width: 45px;
+                height: 45px;
+
+                font-size: 23px;
+            }
+
+            .category-card h4 {
+                font-size: 15px;
+            }
+
+        }
+
+        @media (max-width: 380px) {
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        🌸 FloraVerse
+    </a>
+
+    <div class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="flowers.html">Flowers</a>
+
+        <a href="categories.html">Categories</a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="categories-hero">
+
+    <div class="hero-content">
+
+        <span class="hero-tag">
+            🌿 FLORAVERSE COLLECTION
+        </span>
+
+        <h1>
+            Explore Categories
+        </h1>
+
+        <p>
+            Discover flowers by season, color, habitat,
+            fragrance, lifestyle and more.
+            Find the perfect collection for your curiosity.
+        </p>
+
+        <a href="flowers.html" class="back-btn">
+            ← Back to Flowers
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<section class="search-section">
+
+    <div class="search-title">
+
+        <span>🔍 DISCOVER</span>
+
+        <h2>
+            Find Flowers & Categories
+        </h2>
+
+        <p>
+            Search a flower name or category to discover more.
+        </p>
+
+    </div>
+
+
+    <div class="search-wrapper">
+
+        <div class="search-box">
+
+            <span class="search-icon">
+                🔍
+            </span>
+
+            <input
+                type="text"
+                id="categorySearch"
+                placeholder="Search flower or category..."
+                autocomplete="off"
+            >
+
+            <button
+                id="clearSearch"
+                class="clear-search"
+                type="button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            id="searchSuggestions"
+            class="search-suggestions"
+        ></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CATEGORIES
+========================= -->
+
+<section class="categories-section">
+
+
+    <div class="section-heading">
+
+        <span>🌸 EXPLORE COLLECTIONS</span>
+
+        <h2>
+            Find Your Flower World
+        </h2>
+
+        <p>
+            Browse flowers through different collections.
+        </p>
+
+    </div>
+
+
+
+    <!-- SEASONAL -->
+
+    <div class="category-group">
+
+        <div class="category-group-title">
+
+            <span>🌤️</span>
+
+            <h3>
+                Seasonal Flowers
+            </h3>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <a
+                href="categories/spring-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🌷</div>
+
+                <h4>Spring Flowers</h4>
+
+                <p>
+                    Fresh blooms that brighten the spring season.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/summer-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">☀️</div>
+
+                <h4>Summer Flowers</h4>
+
+                <p>
+                    Bright flowers that love warm sunshine.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/autumn-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🍂</div>
+
+                <h4>Autumn Flowers</h4>
+
+                <p>
+                    Beautiful blooms for the colorful autumn season.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/winter-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">❄️</div>
+
+                <h4>Winter Flowers</h4>
+
+                <p>
+                    Flowers that bring beauty to colder days.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- HABITAT -->
+
+    <div class="category-group">
+
+        <div class="category-group-title">
+
+            <span>🌍</span>
+
+            <h3>
+                Habitat & Environment
+            </h3>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <a
+                href="categories/garden-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🌹</div>
+
+                <h4>Garden Flowers</h4>
+
+                <p>
+                    Popular flowers for beautiful gardens.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/aquatic-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🪷</div>
+
+                <h4>Aquatic Flowers</h4>
+
+                <p>
+                    Beautiful flowers that grow in or around water.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/tropical-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🌺</div>
+
+                <h4>Tropical Flowers</h4>
+
+                <p>
+                    Colorful flowers from warm tropical regions.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/desert-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🌵</div>
+
+                <h4>Desert Flowers</h4>
+
+                <p>
+                    Flowers adapted to dry and hot environments.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/mountain-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🏔️</div>
+
+                <h4>Mountain Flowers</h4>
+
+                <p>
+                    Beautiful blooms found in mountain regions.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/wildflowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🌼</div>
+
+                <h4>Wildflowers</h4>
+
+                <p>
+                    Naturally growing flowers found in the wild.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/flowering-trees.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🌳</div>
+
+                <h4>Flowering Trees</h4>
+
+                <p>
+                    Trees known for their beautiful blossoms.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/night-blooming-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🌙</div>
+
+                <h4>Night-Blooming Flowers</h4>
+
+                <p>
+                    Flowers that open and bloom after sunset.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SPECIAL FEATURES -->
+
+    <div class="category-group">
+
+        <div class="category-group-title">
+
+            <span>✨</span>
+
+            <h3>
+                Special Collections
+            </h3>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <a
+                href="categories/fragrant-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🌸</div>
+
+                <h4>Fragrant Flowers</h4>
+
+                <p>
+                    Flowers known for their beautiful fragrances.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/medicinal-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🌿</div>
+
+                <h4>Medicinal & Healing Flowers</h4>
+
+                <p>
+                    Flowers traditionally valued for wellness.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/pollinator-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🦋</div>
+
+                <h4>Pollinator-Friendly Flowers</h4>
+
+                <p>
+                    Flowers that attract helpful pollinators.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/rare-exotic-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">💎</div>
+
+                <h4>Rare & Exotic Flowers</h4>
+
+                <p>
+                    Unusual and fascinating flower varieties.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/easy-to-grow-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🌱</div>
+
+                <h4>Easy-to-Grow Flowers</h4>
+
+                <p>
+                    Beginner-friendly flowers for growing at home.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- COLORS -->
+
+    <div class="category-group">
+
+        <div class="category-group-title">
+
+            <span>🎨</span>
+
+            <h3>
+                Flower Colors
+            </h3>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <a
+                href="categories/red-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">❤️</div>
+
+                <h4>Red Flowers</h4>
+
+                <p>
+                    Passionate and vibrant red blooms.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/orange-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🧡</div>
+
+                <h4>Orange Flowers</h4>
+
+                <p>
+                    Warm and energetic orange blooms.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/yellow-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">💛</div>
+
+                <h4>Yellow Flowers</h4>
+
+                <p>
+                    Bright and cheerful yellow flowers.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/green-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">💚</div>
+
+                <h4>Green Flowers</h4>
+
+                <p>
+                    Unique flowers with refreshing green tones.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/blue-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">💙</div>
+
+                <h4>Blue Flowers</h4>
+
+                <p>
+                    Calm and elegant blue blooms.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/purple-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">💜</div>
+
+                <h4>Purple Flowers</h4>
+
+                <p>
+                    Rich and graceful purple flowers.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/pink-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🩷</div>
+
+                <h4>Pink Flowers</h4>
+
+                <p>
+                    Soft and charming pink blooms.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/white-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🤍</div>
+
+                <h4>White Flowers</h4>
+
+                <p>
+                    Clean and elegant white flowers.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- GROWING -->
+
+    <div class="category-group">
+
+        <div class="category-group-title">
+
+            <span>🪴</span>
+
+            <h3>
+                Growing & Lifestyle
+            </h3>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <a
+                href="categories/indoor-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🪴</div>
+
+                <h4>Indoor Flowers</h4>
+
+                <p>
+                    Flowers suitable for indoor spaces.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/balcony-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🌿</div>
+
+                <h4>Balcony Flowers</h4>
+
+                <p>
+                    Flowers perfect for balcony gardens.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/annual-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🌱</div>
+
+                <h4>Annual Flowers</h4>
+
+                <p>
+                    Flowers that complete their life cycle in one season.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/perennial-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🌳</div>
+
+                <h4>Perennial Flowers</h4>
+
+                <p>
+                    Flowers that return year after year.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/native-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">🌾</div>
+
+                <h4>Native Flowers</h4>
+
+                <p>
+                    Flowers naturally associated with their regions.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- EVENTS -->
+
+    <div class="category-group">
+
+        <div class="category-group-title">
+
+            <span>💐</span>
+
+            <h3>
+                Events & Arrangements
+            </h3>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <a
+                href="categories/wedding-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">💍</div>
+
+                <h4>Wedding Flowers</h4>
+
+                <p>
+                    Beautiful flowers often chosen for weddings.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+
+            <a
+                href="categories/bouquet-flowers.html"
+                class="category-card"
+            >
+                <div class="category-card-icon">💐</div>
+
+                <h4>Bouquet Flowers</h4>
+
+                <p>
+                    Flowers that look beautiful in bouquets.
+                </p>
+
+                <div class="category-arrow">
+                    Explore →
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    🌸 FloraVerse — Explore the world of flowers.
+
+</footer>
+
+
+
+<!-- =========================
+     SEARCH JAVASCRIPT
+========================= -->
+
+<script>
+
+const categorySearch =
+    document.getElementById("categorySearch");
+
+const searchSuggestions =
+    document.getElementById("searchSuggestions");
+
+const clearSearch =
+    document.getElementById("clearSearch");
+
+
+
+/* =================================
+   SEARCH DATABASE
+================================= */
+
+const searchData = [
+
+    /* =========================
+       CATEGORIES
+    ========================= */
+
+    {
+        name: "Spring Flowers",
+        type: "Category",
+        icon: "🌷",
+        url: "categories/spring-flowers.html"
+    },
+
+    {
+        name: "Summer Flowers",
+        type: "Category",
+        icon: "☀️",
+        url: "categories/summer-flowers.html"
+    },
+
+    {
+        name: "Autumn Flowers",
+        type: "Category",
+        icon: "🍂",
+        url: "categories/autumn-flowers.html"
+    },
+
+    {
+        name: "Winter Flowers",
+        type: "Category",
+        icon: "❄️",
+        url: "categories/winter-flowers.html"
+    },
+
+    {
+        name: "Garden Flowers",
+        type: "Category",
+        icon: "🌹",
+        url: "categories/garden-flowers.html"
+    },
+
+    {
+        name: "Aquatic Flowers",
+        type: "Category",
+        icon: "🪷",
+        url: "categories/aquatic-flowers.html"
+    },
+
+    {
+        name: "Tropical Flowers",
+        type: "Category",
+        icon: "🌺",
+        url: "categories/tropical-flowers.html"
+    },
+
+    {
+        name: "Desert Flowers",
+        type: "Category",
+        icon: "🌵",
+        url: "categories/desert-flowers.html"
+    },
+
+    {
+        name: "Mountain Flowers",
+        type: "Category",
+        icon: "🏔️",
+        url: "categories/mountain-flowers.html"
+    },
+
+    {
+        name: "Wildflowers",
+        type: "Category",
+        icon: "🌼",
+        url: "categories/wildflowers.html"
+    },
+
+    {
+        name: "Flowering Trees",
+        type: "Category",
+        icon: "🌳",
+        url: "categories/flowering-trees.html"
+    },
+
+    {
+        name: "Night-Blooming Flowers",
+        type: "Category",
+        icon: "🌙",
+        url: "categories/night-blooming-flowers.html"
+    },
+
+    {
+        name: "Fragrant Flowers",
+        type: "Category",
+        icon: "🌸",
+        url: "categories/fragrant-flowers.html"
+    },
+
+    {
+        name: "Medicinal & Healing Flowers",
+        type: "Category",
+        icon: "🌿",
+        url: "categories/medicinal-flowers.html"
+    },
+
+    {
+        name: "Pollinator-Friendly Flowers",
+        type: "Category",
+        icon: "🦋",
+        url: "categories/pollinator-flowers.html"
+    },
+
+    {
+        name: "Rare & Exotic Flowers",
+        type: "Category",
+        icon: "💎",
+        url: "categories/rare-exotic-flowers.html"
+    },
+
+    {
+        name: "Easy-to-Grow Flowers",
+        type: "Category",
+        icon: "🌱",
+        url: "categories/easy-to-grow-flowers.html"
+    },
+
+    {
+        name: "Red Flowers",
+        type: "Category",
+        icon: "❤️",
+        url: "categories/red-flowers.html"
+    },
+
+    {
+        name: "Orange Flowers",
+        type: "Category",
+        icon: "🧡",
+        url: "categories/orange-flowers.html"
+    },
+
+    {
+        name: "Yellow Flowers",
+        type: "Category",
+        icon: "💛",
+        url: "categories/yellow-flowers.html"
+    },
+
+    {
+        name: "Green Flowers",
+        type: "Category",
+        icon: "💚",
+        url: "categories/green-flowers.html"
+    },
+
+    {
+        name: "Blue Flowers",
+        type: "Category",
+        icon: "💙",
+        url: "categories/blue-flowers.html"
+    },
+
+    {
+        name: "Purple Flowers",
+        type: "Category",
+        icon: "💜",
+        url: "categories/purple-flowers.html"
+    },
+
+    {
+        name: "Pink Flowers",
+        type: "Category",
+        icon: "🩷",
+        url: "categories/pink-flowers.html"
+    },
+
+    {
+        name: "White Flowers",
+        type: "Category",
+        icon: "🤍",
+        url: "categories/white-flowers.html"
+    },
+
+    {
+        name: "Indoor Flowers",
+        type: "Category",
+        icon: "🪴",
+        url: "categories/indoor-flowers.html"
+    },
+
+    {
+        name: "Balcony Flowers",
+        type: "Category",
+        icon: "🌿",
+        url: "categories/balcony-flowers.html"
+    },
+
+    {
+        name: "Annual Flowers",
+        type: "Category",
+        icon: "🌱",
+        url: "categories/annual-flowers.html"
+    },
+
+    {
+        name: "Perennial Flowers",
+        type: "Category",
+        icon: "🌳",
+        url: "categories/perennial-flowers.html"
+    },
+
+    {
+        name: "Native Flowers",
+        type: "Category",
+        icon: "🌾",
+        url: "categories/native-flowers.html"
+    },
+
+    {
+        name: "Wedding Flowers",
+        type: "Category",
+        icon: "💍",
+        url: "categories/wedding-flowers.html"
+    },
+
+    {
+        name: "Bouquet Flowers",
+        type: "Category",
+        icon: "💐",
+        url: "categories/bouquet-flowers.html"
+    },
+
+
+    /* =========================
+       FLOWERS
+    ========================= */
+
+    {
+        name: "Rose",
+        type: "Flower",
+        icon: "🌹",
+        categories: [
+            "Garden Flowers",
+            "Fragrant Flowers",
+            "Wedding Flowers",
+            "Red Flowers"
+        ],
+        url: "flower-details/rose.html"
+    },
+
+    {
+        name: "Sunflower",
+        type: "Flower",
+        icon: "🌻",
+        categories: [
+            "Summer Flowers",
+            "Garden Flowers",
+            "Yellow Flowers"
+        ],
+        url: "flower-details/sunflower.html"
+    },
+
+    {
+        name: "Lotus",
+        type: "Flower",
+        icon: "🪷",
+        categories: [
+            "Aquatic Flowers",
+            "Pink Flowers",
+            "White Flowers"
+        ],
+        url: "flower-details/lotus.html"
+    },
+
+    {
+        name: "Jasmine",
+        type: "Flower",
+        icon: "🌼",
+        categories: [
+            "Fragrant Flowers",
+            "Garden Flowers",
+            "White Flowers"
+        ],
+        url: "flower-details/jasmine.html"
+    },
+
+    {
+        name: "Lavender",
+        type: "Flower",
+        icon: "💜",
+        categories: [
+            "Fragrant Flowers",
+            "Purple Flowers",
+            "Garden Flowers"
+        ],
+        url: "flower-details/lavender.html"
+    },
+
+    {
+        name: "Marigold",
+        type: "Flower",
+        icon: "🌼",
+        categories: [
+            "Summer Flowers",
+            "Garden Flowers",
+            "Orange Flowers",
+            "Yellow Flowers"
+        ],
+        url: "flower-details/marigold.html"
+    },
+
+    {
+        name: "Hibiscus",
+        type: "Flower",
+        icon: "🌺",
+        categories: [
+            "Summer Flowers",
+            "Tropical Flowers",
+            "Garden Flowers"
+        ],
+        url: "flower-details/hibiscus.html"
+    },
+
+    {
+        name: "Orchid",
+        type: "Flower",
+        icon: "🌸",
+        categories: [
+            "Tropical Flowers",
+            "Rare & Exotic Flowers",
+            "Purple Flowers"
+        ],
+        url: "flower-details/orchid.html"
+    },
+
+    {
+        name: "Lily",
+        type: "Flower",
+        icon: "🌸",
+        categories: [
+            "Fragrant Flowers",
+            "Garden Flowers",
+            "White Flowers",
+            "Wedding Flowers"
+        ],
+        url: "flower-details/lily.html"
+    },
+
+    {
+        name: "Daisy",
+        type: "Flower",
+        icon: "🌼",
+        categories: [
+            "Spring Flowers",
+            "Summer Flowers",
+            "Garden Flowers",
+            "White Flowers"
+        ],
+        url: "flower-details/daisy.html"
+    },
+
+    {
+        name: "Daffodil",
+        type: "Flower",
+        icon: "🌼",
+        categories: [
+            "Spring Flowers",
+            "Yellow Flowers",
+            "Garden Flowers"
+        ],
+        url: "flower-details/daffodil.html"
+    },
+
+    {
+        name: "Peony",
+        type: "Flower",
+        icon: "🌸",
+        categories: [
+            "Spring Flowers",
+            "Garden Flowers",
+            "Pink Flowers",
+            "Wedding Flowers"
+        ],
+        url: "flower-details/peony.html"
+    },
+
+    {
+        name: "Magnolia",
+        type: "Flower",
+        icon: "🌸",
+        categories: [
+            "Spring Flowers",
+            "Garden Flowers",
+            "Fragrant Flowers",
+            "White Flowers"
+        ],
+        url: "flower-details/magnolia.html"
+    },
+
+    {
+        name: "Carnation",
+        type: "Flower",
+        icon: "🌸",
+        categories: [
+            "Spring Flowers",
+            "Garden Flowers",
+            "Pink Flowers",
+            "Wedding Flowers"
+        ],
+        url: "flower-details/carnation.html"
+    },
+
+    {
+        name: "Cherry Blossom",
+        type: "Flower",
+        icon: "🌸",
+        categories: [
+            "Spring Flowers",
+            "Pink Flowers",
+            "Flowering Trees"
+        ],
+        url: "flower-details/cherry-blossom.html"
+    }
+
+];
+
+
+
+/* =================================
+   SHOW SUGGESTIONS
+================================= */
+
+function showSuggestions() {
+
+    const query =
+        categorySearch.value
+            .trim()
+            .toLowerCase();
+
+
+    clearSearch.style.display =
+        query ? "block" : "none";
+
+
+    if (!query) {
+
+        searchSuggestions.innerHTML = "";
+
+        searchSuggestions.style.display =
+            "none";
+
+        return;
+    }
+
+
+    const results =
+        searchData
+            .filter(item => {
+
+                const nameMatch =
+                    item.name
+                        .toLowerCase()
+                        .includes(query);
+
+
+                const categoryMatch =
+                    item.categories
+                        ? item.categories.some(category =>
+                            category
+                                .toLowerCase()
+                                .includes(query)
+                        )
+                        : false;
+
+
+                return nameMatch || categoryMatch;
+
+            })
+            .slice(0, 7);
+
+
+
+    /* NO RESULTS */
+
+    if (results.length === 0) {
+
+        searchSuggestions.innerHTML = `
+
+            <div class="no-results">
+
+                🌱
+                <br><br>
+
+                No flowers or categories found.
+
+                <br>
+
+                Try another search.
+
+            </div>
+
+        `;
+
+        searchSuggestions.style.display =
+            "block";
+
+        return;
+    }
+
+
+
+    /* RESULTS */
+
+    searchSuggestions.innerHTML =
+        results.map(item => {
+
+            let subtitle =
+                item.type;
+
+
+            if (item.categories) {
+
+                subtitle =
+                    item.categories
+                        .slice(0, 3)
+                        .join(" • ");
+
+            }
+
+
+            return `
+
+                <div
+                    class="suggestion-item"
+                    onclick="openSearchResult('${item.url}')"
+                >
+
+                    <div class="suggestion-icon">
+                        ${item.icon}
+                    </div>
+
+
+                    <div class="suggestion-info">
+
+                        <strong>
+                            ${item.name}
+                        </strong>
+
+                        <small>
+                            ${subtitle}
+                        </small>
+
+                    </div>
+
+
+                    <span class="suggestion-type">
+                        ${item.type}
+                    </span>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+
+    searchSuggestions.style.display =
+        "block";
+
+}
+
+
+
+/* =================================
+   OPEN RESULT
+================================= */
+
+function openSearchResult(url) {
+
+    window.location.href = url;
+
+}
+
+
+
+/* =================================
+   SEARCH INPUT
+================================= */
+
+categorySearch.addEventListener(
+    "input",
+    showSuggestions
+);
+
+
+
+/* =================================
+   CLEAR BUTTON
+================================= */
+
+clearSearch.addEventListener(
+    "click",
+    function() {
+
+        categorySearch.value = "";
+
+        searchSuggestions.innerHTML = "";
+
+        searchSuggestions.style.display =
+            "none";
+
+        clearSearch.style.display =
+            "none";
+
+        categorySearch.focus();
+
+    }
+);
+
+
+
+/* =================================
+   CLOSE SUGGESTIONS
+================================= */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            !event.target.closest(
+                ".search-wrapper"
+            )
+        ) {
+
+            searchSuggestions.style.display =
+                "none";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>

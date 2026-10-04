@@ -1,0 +1,151 @@
+/* =================================
+   FLORAVERSE SPECIAL FLOWER SEARCH
+================================= */
+
+.flower-search {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    height: 54px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Search Input */
+.flower-search input {
+    width: 100%;
+    height: 54px;
+    min-height: 54px;
+    max-height: 54px;
+
+    box-sizing: border-box;
+    padding: 0 20px;
+
+    border: 2px solid #ddd;
+    border-radius: 28px;
+
+    font-size: 16px;
+    outline: none;
+    background: #fff;
+
+    transition: 0.25s ease;
+}
+
+.flower-search input:focus {
+    border-color: #7b5cff;
+    box-shadow: 0 4px 18px rgba(123, 92, 255, 0.15);
+}
+
+/* Search Button */
+.flower-search button {
+    height: 54px;
+    min-height: 54px;
+
+    padding: 0 24px;
+    border: none;
+    border-radius: 28px;
+
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.flower-search button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =================================
+   GOOGLE STYLE SUGGESTIONS
+================================= */
+
+#flowerSuggestions {
+    position: absolute;
+
+    top: calc(100% + 8px);
+    left: 0;
+
+    width: calc(100% - 120px);
+
+    background: #fff;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+    overflow: hidden;
+
+    z-index: 9999;
+
+    box-sizing: border-box;
+}
+
+
+/* Individual Suggestion */
+.flower-suggestion {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 48px;
+
+    padding: 10px 18px;
+
+    box-sizing: border-box;
+
+    cursor: pointer;
+
+    background: #fff;
+
+    font-size: 15px;
+    color: #333;
+
+    transition: background 0.15s ease;
+}
+
+.flower-suggestion:hover {
+    background: #f5f3ff;
+}
+
+
+/* Search Icon */
+.flower-suggestion::before {
+    content: "🔍";
+    margin-right: 12px;
+    font-size: 14px;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+
+    .flower-search {
+        width: 92%;
+        height: auto;
+
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .flower-search input {
+        width: 100%;
+    }
+
+    .flower-search button {
+        width: 100%;
+    }
+
+    #flowerSuggestions {
+        width: 100%;
+        top: 62px;
+    }
+}

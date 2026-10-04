@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fertilizer Guide | FloraVerse</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8faf5;
+            color: #30422a;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .fert-navbar {
+            height: 72px;
+            background: rgba(255,255,255,.97);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e1e9d9;
+            box-shadow: 0 4px 20px rgba(50,80,40,.06);
+        }
+
+        .fert-logo {
+            text-decoration: none;
+            color: #486b35;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .fert-nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        .fert-nav a {
+            text-decoration: none;
+            color: #43533d;
+            font-size: 15px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .fert-nav a:hover,
+        .fert-nav a.active {
+            color: #709545;
+        }
+
+        /* ================= HERO ================= */
+
+        .fert-hero {
+            min-height: 490px;
+            display: flex;
+            align-items: center;
+            padding: 70px 8%;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(248,250,245,.98) 0%,
+                    rgba(248,250,245,.93) 40%,
+                    rgba(248,250,245,.55) 70%,
+                    rgba(248,250,245,.10) 100%
+                ),
+                url("images/fertilizer-background.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .fert-hero-content {
+            max-width: 680px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .fert-tag {
+            display: inline-block;
+            background: #e8f1dc;
+            color: #64833e;
+            padding: 9px 17px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .fert-hero h1 {
+            font-size: clamp(42px, 6vw, 70px);
+            line-height: 1.05;
+            color: #355129;
+            margin-bottom: 20px;
+        }
+
+        .fert-hero h1 span {
+            color: #7c9e4e;
+        }
+
+        .fert-hero p {
+            color: #5e6c58;
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 600px;
+            margin-bottom: 28px;
+        }
+
+        /* ================= SEARCH ================= */
+
+        .fert-search {
+            width: min(630px, 100%);
+            background: white;
+            border: 1px solid #dce6d5;
+            border-radius: 18px;
+            padding: 8px;
+            display: flex;
+            box-shadow: 0 12px 35px rgba(60,90,45,.12);
+        }
+
+        .fert-search input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 15px;
+            font-size: 15px;
+            background: transparent;
+        }
+
+        .fert-search button {
+            border: none;
+            background: #73994a;
+            color: white;
+            padding: 0 25px;
+            border-radius: 13px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .fert-search button:hover {
+            background: #5e8338;
+        }
+
+        .fert-search-results {
+            display: none;
+            width: min(630px, 100%);
+            margin-top: 8px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(50,80,40,.12);
+        }
+
+        .fert-result {
+            padding: 14px 18px;
+            border-bottom: 1px solid #edf1e9;
+            cursor: pointer;
+        }
+
+        .fert-result:hover {
+            background: #f0f6e9;
+        }
+
+        .fert-result strong {
+            color: #466532;
+        }
+
+        .fert-result small {
+            display: block;
+            color: #7a8875;
+            margin-top: 4px;
+        }
+
+        /* ================= BULLETIN ================= */
+
+        .bulletin-wrap {
+            padding: 18px 7%;
+            background: #fffaf0;
+            border-bottom: 1px solid #f0e2bf;
+        }
+
+        .bulletin {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            border: 1px solid #e9d39a;
+            border-radius: 14px;
+            background: #fff4d8;
+            height: 52px;
+        }
+
+        .bulletin-label {
+            flex-shrink: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 18px;
+            background: #d99d35;
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .ticker-window {
+            overflow: hidden;
+            flex: 1;
+            white-space: nowrap;
+        }
+
+        .ticker-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: tickerMove 25s linear infinite;
+            color: #765c29;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .ticker-window:hover .ticker-text {
+            animation-play-state: paused;
+        }
+
+        @keyframes tickerMove {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* ================= GENERAL ================= */
+
+        .fert-section {
+            padding: 75px 7%;
+        }
+
+        .section-heading {
+            max-width: 760px;
+            text-align: center;
+            margin: 0 auto 45px;
+        }
+
+        .section-heading span {
+            color: #78994e;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: 38px;
+            color: #354e2b;
+            margin: 10px 0 14px;
+        }
+
+        .section-heading p {
+            color: #6b7866;
+            line-height: 1.7;
+        }
+
+        /* ================= INTRO ================= */
+
+        .intro-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .intro-card {
+            background: white;
+            border: 1px solid #e0e8da;
+            border-radius: 23px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(50,80,40,.06);
+        }
+
+        .intro-card h3 {
+            color: #42602f;
+            margin-bottom: 13px;
+            font-size: 22px;
+        }
+
+        .intro-card p {
+            color: #697665;
+            line-height: 1.75;
+        }
+
+        /* ================= NPK ================= */
+
+        .npk-section {
+            background: #eef4e8;
+        }
+
+        .npk-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .npk-card {
+            background: white;
+            border-radius: 22px;
+            padding: 30px;
+            border: 1px solid #dce7d6;
+            box-shadow: 0 8px 22px rgba(50,80,40,.06);
+        }
+
+        .npk-number {
+            font-size: 45px;
+            font-weight: bold;
+            color: #78994c;
+            margin-bottom: 10px;
+        }
+
+        .npk-card h3 {
+            color: #405c31;
+            margin-bottom: 10px;
+        }
+
+        .npk-card p {
+            color: #6c7968;
+            line-height: 1.65;
+        }
+
+        /* ================= TYPES ================= */
+
+        .types-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .type-card {
+            background: white;
+            border: 1px solid #e0e8da;
+            border-radius: 20px;
+            padding: 25px;
+            transition: .3s;
+        }
+
+        .type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(50,80,40,.09);
+        }
+
+        .type-icon {
+            font-size: 32px;
+            margin-bottom: 13px;
+        }
+
+        .type-card h3 {
+            color: #456433;
+            margin-bottom: 9px;
+        }
+
+        .type-card p {
+            color: #6d7969;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        /* ================= NATURAL ================= */
+
+        .natural-section {
+            background: #f4f7f0;
+        }
+
+        .natural-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .natural-card {
+            background: white;
+            border: 1px solid #dfe8d9;
+            border-radius: 20px;
+            padding: 23px 18px;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .natural-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .natural-card .icon {
+            font-size: 34px;
+            margin-bottom: 13px;
+        }
+
+        .natural-card h3 {
+            color: #496837;
+            font-size: 17px;
+            margin-bottom: 9px;
+        }
+
+        .natural-card p {
+            color: #707d6c;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* ================= TIMING ================= */
+
+        .timing-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .timing-card {
+            background: white;
+            border-radius: 22px;
+            border: 1px solid #e0e8da;
+            padding: 28px;
+        }
+
+        .timing-card h3 {
+            color: #486634;
+            margin-bottom: 12px;
+        }
+
+        .timing-card p {
+            color: #6c7968;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* ================= FLOWER RESULT ================= */
+
+        .recommendation-box {
+            display: none;
+            max-width: 1050px;
+            margin: 35px auto 0;
+            background: white;
+            border: 1px solid #d9e5d1;
+            border-radius: 25px;
+            padding: 32px;
+            box-shadow: 0 12px 35px rgba(50,80,40,.09);
+        }
+
+        .recommendation-box h3 {
+            font-size: 29px;
+            color: #3d5b2f;
+            margin-bottom: 10px;
+        }
+
+        .recommendation-box > p {
+            color: #6c7967;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .recommendation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .recommendation-item {
+            background: #f0f5eb;
+            border-radius: 16px;
+            padding: 18px;
+        }
+
+        .recommendation-item strong {
+            display: block;
+            color: #54773b;
+            margin-bottom: 7px;
+        }
+
+        .recommendation-item span {
+            color: #687564;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .suggestion {
+            margin-top: 18px;
+            background: #f8f1d9;
+            border: 1px solid #ead9a4;
+            border-radius: 14px;
+            padding: 15px;
+            color: #715c2d;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* ================= MISTAKES ================= */
+
+        .mistakes-section {
+            background: #f7faf5;
+        }
+
+        .mistakes-grid {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .mistake {
+            background: white;
+            border: 1px solid #e0e8da;
+            border-radius: 18px;
+            padding: 20px;
+        }
+
+        .mistake strong {
+            color: #4d683a;
+        }
+
+        .mistake p {
+            color: #707d6c;
+            margin-top: 7px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* ================= SAFETY ================= */
+
+        .safety-section {
+            background: #fff8e8;
+        }
+
+        .safety-box {
+            max-width: 1050px;
+            margin: auto;
+            background: #fffdf7;
+            border: 2px solid #e7d29a;
+            border-radius: 25px;
+            padding: 32px;
+            box-shadow: 0 10px 28px rgba(120,90,30,.07);
+        }
+
+        .safety-box h3 {
+            color: #7a602a;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .safety-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .safety-list li {
+            background: #fff7df;
+            border-radius: 13px;
+            padding: 14px 16px;
+            color: #6e5d38;
+            line-height: 1.5;
+        }
+
+        /* ================= FOOTER ================= */
+
+        .fert-footer {
+            background: #3d5631;
+            color: white;
+            text-align: center;
+            padding: 42px 20px;
+        }
+
+        .fert-footer h2 {
+            margin-bottom: 9px;
+        }
+
+        .fert-footer p {
+            color: #dce7d6;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1100px) {
+
+            .natural-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .types-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 850px) {
+
+            .fert-navbar {
+                padding: 15px 5%;
+                height: auto;
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .fert-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .intro-grid,
+            .mistakes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .npk-grid,
+            .timing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recommendation-grid,
+            .safety-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .fert-hero {
+                padding: 60px 6%;
+                min-height: 600px;
+            }
+
+            .fert-hero h1 {
+                font-size: 45px;
+            }
+
+            .fert-search {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .fert-search button {
+                height: 48px;
+            }
+
+            .fert-section {
+                padding: 55px 5%;
+            }
+
+            .section-heading h2 {
+                font-size: 30px;
+            }
+
+            .types-grid,
+            .natural-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bulletin-wrap {
+                padding: 14px 5%;
+            }
+
+            .bulletin-label {
+                padding: 0 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="fert-navbar">
+
+    <a href="index.html" class="fert-logo">
+        🌿 FloraVerse
+    </a>
+
+    <nav class="fert-nav">
+        <a href="index.html">Home</a>
+        <a href="flowers.html">Flowers</a>
+        <a href="categories.html">Categories</a>
+        <a href="growing-guide.html">Growing Guide</a>
+        <a href="fertilizer-guide.html" class="active">Fertilizer</a>
+        <a href="login.html">Login</a>
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="fert-hero">
+
+    <div class="fert-hero-content">
+
+        <span class="fert-tag">
+            🌾 FLORAVERSE FERTILIZER GUIDE
+        </span>
+
+        <h1>
+            Feed Better.<br>
+            <span>Bloom Better.</span>
+        </h1>
+
+        <p>
+            Discover suitable fertilizer choices for your flowers,
+            understand basic plant nutrition and explore simple
+            natural ways to improve your soil.
+        </p>
+
+
+        <div class="fert-search">
+
+            <input
+                type="text"
+                id="fertilizerSearch"
+                placeholder="🔎 Search a flower name..."
+                autocomplete="off"
+            >
+
+            <button onclick="searchFertilizer()">
+                Search
+            </button>
+
+        </div>
+
+        <div
+            class="fert-search-results"
+            id="fertilizerResults">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MOVING BULLETIN ================= -->
+
+<section class="bulletin-wrap">
+
+    <div class="bulletin">
+
+        <div class="bulletin-label">
+            ⚠️ IMPORTANT
+        </div>
+
+        <div class="ticker-window">
+
+            <div class="ticker-text">
+
+                Carefully use fertilizers •
+                Always follow the product label •
+                Do not over-fertilize •
+                Keep fertilizer products away from children and pets •
+                Wash hands after handling fertilizer •
+                Natural does not always mean risk-free •
+                When in doubt, choose a simple and gentle approach
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= INTRO ================= -->
+
+<section class="fert-section">
+
+    <div class="section-heading">
+
+        <span>START HERE</span>
+
+        <h2>What Is Fertilizer?</h2>
+
+        <p>
+            Fertilizers provide nutrients that plants use for healthy
+            growth. The right choice depends on the plant, soil and
+            growing conditions.
+        </p>
+
+    </div>
+
+
+    <div class="intro-grid">
+
+        <div class="intro-card">
+
+            <h3>🌱 Why Do Plants Need Nutrients?</h3>
+
+            <p>
+                Plants need several nutrients to develop roots, leaves
+                and flowers. Soil may naturally contain nutrients, but
+                nutrients can become limited over time, especially in
+                frequently used containers.
+            </p>
+
+        </div>
+
+
+        <div class="intro-card">
+
+            <h3>💡 Fertilizer Is Not Plant Food</h3>
+
+            <p>
+                Plants make their own food through photosynthesis.
+                Fertilizers provide mineral nutrients that support
+                plant growth rather than replacing sunlight and water.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= NPK ================= -->
+
+<section class="fert-section npk-section">
+
+    <div class="section-heading">
+
+        <span>UNDERSTAND NPK</span>
+
+        <h2>What Do N • P • K Mean?</h2>
+
+        <p>
+            You will often see these three numbers on fertilizer labels.
+        </p>
+
+    </div>
+
+
+    <div class="npk-grid">
+
+        <div class="npk-card">
+
+            <div class="npk-number">N</div>
+
+            <h3>Nitrogen</h3>
+
+            <p>
+                Nitrogen supports leafy, green growth and is important
+                for overall plant development.
+            </p>
+
+        </div>
+
+
+        <div class="npk-card">
+
+            <div class="npk-number">P</div>
+
+            <h3>Phosphorus</h3>
+
+            <p>
+                Phosphorus plays an important role in roots and
+                reproductive development, including flowering.
+            </p>
+
+        </div>
+
+
+        <div class="npk-card">
+
+            <div class="npk-number">K</div>
+
+            <h3>Potassium</h3>
+
+            <p>
+                Potassium supports several plant functions and helps
+                plants handle environmental stress.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TYPES ================= -->
+
+<section class="fert-section">
+
+    <div class="section-heading">
+
+        <span>FERTILIZER TYPES</span>
+
+        <h2>Know Your Options</h2>
+
+        <p>
+            Different fertilizer forms can be useful in different
+            gardening situations.
+        </p>
+
+    </div>
+
+
+    <div class="types-grid">
+
+        <div class="type-card">
+            <div class="type-icon">🌿</div>
+            <h3>Organic Fertilizer</h3>
+            <p>
+                Derived from organic materials and commonly used to
+                support soil and plant nutrition.
+            </p>
+        </div>
+
+
+        <div class="type-card">
+            <div class="type-icon">🍂</div>
+            <h3>Compost</h3>
+            <p>
+                Mature compost adds organic matter and can improve the
+                overall condition of garden soil.
+            </p>
+        </div>
+
+
+        <div class="type-card">
+            <div class="type-icon">💧</div>
+            <h3>Liquid Fertilizer</h3>
+            <p>
+                A liquid form that can be useful when the product is
+                intended for this method of application.
+            </p>
+        </div>
+
+
+        <div class="type-card">
+            <div class="type-icon">🌱</div>
+            <h3>Granular Fertilizer</h3>
+            <p>
+                Granules release nutrients according to the product's
+                formulation and instructions.
+            </p>
+        </div>
+
+
+        <div class="type-card">
+            <div class="type-icon">⏳</div>
+            <h3>Slow-Release</h3>
+            <p>
+                Designed to release nutrients gradually over a period
+                of time according to the product.
+            </p>
+        </div>
+
+
+        <div class="type-card">
+            <div class="type-icon">🪴</div>
+            <h3>Flower-Specific</h3>
+            <p>
+                Some products are formulated for particular plant
+                groups such as roses, orchids or flowering plants.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= NATURAL ================= -->
+
+<section class="fert-section natural-section">
+
+    <div class="section-heading">
+
+        <span>NATURAL AT HOME</span>
+
+        <h2>Simple Homemade Organic Options</h2>
+
+        <p>
+            Composting is one of the simplest ways to turn suitable
+            household organic material into useful soil amendment.
+        </p>
+
+    </div>
+
+
+    <div class="natural-grid">
+
+        <div class="natural-card">
+
+            <div class="icon">🍌</div>
+
+            <h3>Banana Peel Compost</h3>
+
+            <p>
+                Add suitable banana peels to your compost rather than
+                placing large amounts directly around plants.
+            </p>
+
+        </div>
+
+
+        <div class="natural-card">
+
+            <div class="icon">🥬</div>
+
+            <h3>Vegetable Compost</h3>
+
+            <p>
+                Suitable fruit and vegetable scraps can become part
+                of a balanced home compost.
+            </p>
+
+        </div>
+
+
+        <div class="natural-card">
+
+            <div class="icon">🍂</div>
+
+            <h3>Leaf Compost</h3>
+
+            <p>
+                Dry leaves can be composted into useful organic
+                material for garden soil.
+            </p>
+
+        </div>
+
+
+        <div class="natural-card">
+
+            <div class="icon">☕</div>
+
+            <h3>Coffee Grounds</h3>
+
+            <p>
+                Used coffee grounds are generally better added to
+                compost than applied as a thick direct layer.
+            </p>
+
+        </div>
+
+
+        <div class="natural-card">
+
+            <div class="icon">🌱</div>
+
+            <h3>Home Compost</h3>
+
+            <p>
+                Properly composted suitable organic materials can
+                improve soil structure and organic matter.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TIMING ================= -->
+
+<section class="fert-section">
+
+    <div class="section-heading">
+
+        <span>WHEN TO USE</span>
+
+        <h2>Choose the Right Time</h2>
+
+        <p>
+            Fertilizer needs vary according to plant growth and the
+            product being used.
+        </p>
+
+    </div>
+
+
+    <div class="timing-grid">
+
+        <div class="timing-card">
+
+            <h3>🌱 Active Growth</h3>
+
+            <p>
+                Many plants use nutrients actively during periods of
+                new growth. Follow the specific plant and product guidance.
+            </p>
+
+        </div>
+
+
+        <div class="timing-card">
+
+            <h3>🌸 Before Flowering</h3>
+
+            <p>
+                Flowering plants may have different nutrient requirements
+                around their flowering period.
+            </p>
+
+        </div>
+
+
+        <div class="timing-card">
+
+            <h3>❄️ Dormant Periods</h3>
+
+            <p>
+                Plants that naturally slow their growth may not need
+                the same feeding approach throughout the year.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= RECOMMENDATION SEARCH RESULT ================= -->
+
+<section class="fert-section" id="recommendationSection">
+
+    <div class="section-heading">
+
+        <span>FLOWER RECOMMENDATION</span>
+
+        <h2>Find Fertilizer for Your Flower</h2>
+
+        <p>
+            Search above to get a basic fertilizer recommendation
+            and a FloraVerse suggestion.
+        </p>
+
+    </div>
+
+
+    <div
+        class="recommendation-box"
+        id="recommendationBox">
+    </div>
+
+</section>
+
+
+<!-- ================= MISTAKES ================= -->
+
+<section class="fert-section mistakes-section">
+
+    <div class="section-heading">
+
+        <span>AVOID THESE</span>
+
+        <h2>Common Fertilizer Mistakes</h2>
+
+        <p>
+            More fertilizer does not automatically mean better growth.
+        </p>
+
+    </div>
+
+
+    <div class="mistakes-grid">
+
+        <div class="mistake">
+            <strong>❌ Using Too Much</strong>
+            <p>
+                Excess fertilizer can harm plants. Always follow the
+                recommended amount on the product label.
+            </p>
+        </div>
+
+
+        <div class="mistake">
+            <strong>❌ Fertilizing Every Plant the Same Way</strong>
+            <p>
+                Different flowers have different requirements.
+                Consider the plant before choosing a fertilizer.
+            </p>
+        </div>
+
+
+        <div class="mistake">
+            <strong>❌ Ignoring Soil Condition</strong>
+            <p>
+                Fertilizer cannot replace suitable soil, drainage,
+                sunlight and proper watering.
+            </p>
+        </div>
+
+
+        <div class="mistake">
+            <strong>❌ Mixing Products Carelessly</strong>
+            <p>
+                Do not mix fertilizer products unless their labels
+                specifically indicate that doing so is appropriate.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SAFETY ================= -->
+
+<section class="fert-section safety-section">
+
+    <div class="section-heading">
+
+        <span>PLEASE READ</span>
+
+        <h2>⚠️ Important Usage Instructions</h2>
+
+        <p>
+            Use fertilizer carefully and responsibly.
+        </p>
+
+    </div>
+
+
+    <div class="safety-box">
+
+        <h3>Before You Use Fertilizer</h3>
+
+        <ul class="safety-list">
+
+            <li>
+                🌿 Always read and follow the product label.
+            </li>
+
+            <li>
+                📏 Never exceed the recommended amount.
+            </li>
+
+            <li>
+                💧 Check the plant and soil condition before applying.
+            </li>
+
+            <li>
+                🧤 Wash your hands after handling fertilizer.
+            </li>
+
+            <li>
+                👨‍👩‍👧 Keep fertilizer products away from children and pets.
+            </li>
+
+            <li>
+                🚫 Do not mix different products unless the labels allow it.
+            </li>
+
+            <li>
+                🌱 Natural products can still cause problems when overused.
+            </li>
+
+            <li>
+                💡 If unsure, choose a simple option and follow reliable
+                product or gardening guidance.
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="fert-footer">
+
+    <h2>🌿 FloraVerse</h2>
+
+    <p>
+        Grow • Care • Feed • Bloom
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    /* ================= FLOWER DATABASE ================= */
+
+    const fertilizerData = {
+
+        "Rose": {
+            type: "Rose or flowering-plant fertilizer",
+            organic: "Mature compost can be used as a soil amendment.",
+            timing: "Follow the product label and the plant's active growth period.",
+            suggestion: "Choose a fertilizer intended for roses or flowering plants and avoid overfeeding."
+        },
+
+        "Sunflower": {
+            type: "Balanced fertilizer when needed",
+            organic: "Mature compost can support soil quality.",
+            timing: "Use according to soil condition, plant growth and product directions.",
+            suggestion: "Do not assume more fertilizer will make a sunflower grow better."
+        },
+
+        "Lotus": {
+            type: "Fertilizer specifically intended for aquatic plants",
+            organic: "Use only suitable aquatic-plant growing materials.",
+            timing: "Follow the aquatic fertilizer product instructions carefully.",
+            suggestion: "Avoid using ordinary garden fertilizer directly in an aquatic setup unless it is specifically suitable."
+        },
+
+        "Tulip": {
+            type: "Bulb or flowering-plant fertilizer",
+            organic: "Mature compost can improve soil organic matter.",
+            timing: "Timing depends on the growing cycle and local conditions.",
+            suggestion: "Good drainage is important; avoid excessive feeding."
+        },
+
+        "Marigold": {
+            type: "Balanced flowering-plant fertilizer",
+            organic: "Mature compost can be used to improve soil.",
+            timing: "Use only when appropriate for the plant and according to the label.",
+            suggestion: "Moderate feeding is generally better than excessive fertilizer."
+        },
+
+        "Orchid": {
+            type: "Orchid-specific fertilizer",
+            organic: "Use a suitable orchid growing medium rather than ordinary garden compost.",
+            timing: "Follow the orchid fertilizer label and the plant's growth cycle.",
+            suggestion: "Orchids have different growing requirements, so avoid treating them like ordinary garden flowers."
+        },
+
+        "Jasmine": {
+            type: "Balanced flowering-plant fertilizer",
+            organic: "Mature compost can support soil quality.",
+            timing: "Use according to active growth and product instructions.",
+            suggestion: "Suitable light and watering are just as important as feeding."
+        },
+
+        "Lily": {
+            type: "Flowering-plant or bulb fertilizer",
+            organic: "Mature compost can improve soil structure.",
+            timing: "Follow the product directions and seasonal growth cycle.",
+            suggestion: "Avoid excessive fertilizer around the roots."
+        },
+
+        "Carnation": {
+            type: "Balanced flowering-plant fertilizer",
+            organic: "Mature compost can improve soil organic matter.",
+            timing: "Follow the product label during active growth.",
+            suggestion: "Good drainage and suitable sunlight should accompany feeding."
+        },
+
+        "Daffodil": {
+            type: "Bulb fertilizer",
+            organic: "Mature compost can support soil structure.",
+            timing: "Follow bulb-specific guidance for your growing conditions.",
+            suggestion: "Avoid excessive nitrogen if the goal is healthy flowering."
+        },
+
+        "Daisy": {
+            type: "Balanced flower fertilizer",
+            organic: "Mature compost can be used as a soil amendment.",
+            timing: "Feed only when appropriate for the plant's growth stage.",
+            suggestion: "Do not rely on fertilizer alone; light and watering matter too."
+        },
+
+        "Hibiscus": {
+            type: "Flowering-plant fertilizer",
+            organic: "Mature compost can support soil health.",
+            timing: "Follow the product label during active growth.",
+            suggestion: "Regular observation helps you adjust care instead of automatically adding more fertilizer."
+        },
+
+        "Lavender": {
+            type: "Low-to-moderate feeding with a suitable general fertilizer when needed",
+            organic: "Well-matured compost used sparingly can improve soil.",
+            timing: "Avoid unnecessary heavy feeding.",
+            suggestion: "Lavender generally prefers well-draining conditions and does not need excessive fertilizer."
+        },
+
+        "Magnolia": {
+            type: "Tree or shrub fertilizer suitable for magnolia",
+            organic: "Mature compost can improve soil organic matter.",
+            timing: "Follow the product directions and local growing conditions.",
+            suggestion: "Healthy soil and suitable growing conditions are more important than heavy feeding."
+        },
+
+        "Peony": {
+            type: "Flowering-plant or balanced fertilizer",
+            organic: "Mature compost can be used as a soil amendment.",
+            timing: "Follow plant and product guidance.",
+            suggestion: "Avoid excessive nitrogen because strong leafy growth is not the same as good flowering."
+        },
+
+        "Cherry Blossom": {
+            type: "Tree fertilizer suitable for flowering ornamental trees",
+            organic: "Mature compost can support soil condition.",
+            timing: "Follow tree-specific and product-specific instructions.",
+            suggestion: "Do not fertilize simply because growth looks slow; check light, water and season first."
+        },
+
+        "Dahlia": {
+            type: "Flowering-plant fertilizer",
+            organic: "Mature compost can support soil.",
+            timing: "Use according to active growth and product instructions.",
+            suggestion: "Avoid excessive nitrogen when encouraging flowering."
+        },
+
+        "Hydrangea": {
+            type: "Hydrangea or flowering-shrub fertilizer",
+            organic: "Mature compost can improve soil organic matter.",
+            timing: "Follow the product label and seasonal growth.",
+            suggestion: "Hydrangeas can have variety-specific needs, so identify the variety when possible."
+        },
+
+        "Gardenia": {
+            type: "Acid-loving plant fertilizer",
+            organic: "Suitable organic matter can help maintain soil condition.",
+            timing: "Follow the product label during active growth.",
+            suggestion: "Check soil conditions before adding fertilizer."
+        },
+
+        "Petunia": {
+            type: "Flowering-plant fertilizer",
+            organic: "Mature compost can improve growing medium.",
+            timing: "Follow container or garden fertilizer directions.",
+            suggestion: "Container plants may need different feeding schedules from plants in garden soil."
+        },
+
+        "Gerbera": {
+            type: "Flowering-plant fertilizer",
+            organic: "Use mature organic matter suitable for the growing medium.",
+            timing: "Follow the plant and fertilizer instructions.",
+            suggestion: "Good drainage is important."
+        },
+
+        "Zinnia": {
+            type: "Balanced flower fertilizer when needed",
+            organic: "Mature compost can improve soil.",
+            timing: "Use according to plant growth and product directions.",
+            suggestion: "Avoid excessive feeding."
+        },
+
+        "Pansy": {
+            type: "Balanced flowering-plant fertilizer",
+            organic: "Mature compost can support soil quality.",
+            timing: "Adjust feeding to the growing season.",
+            suggestion: "Cool-season growth can have different needs from warm-season growth."
+        },
+
+        "Fuchsia": {
+            type: "Flowering-plant fertilizer",
+            organic: "Suitable mature compost can support growing medium.",
+            timing: "Follow container and product instructions.",
+            suggestion: "Avoid overfeeding and monitor soil moisture."
+        },
+
+        "Petunia": {
+            type: "Flowering-plant fertilizer",
+            organic: "Mature compost can support soil quality.",
+            timing: "Follow the label and plant growth stage.",
+            suggestion: "Container-grown petunias may require more attention to nutrients than garden-grown plants."
+        }
+
+    };
+
+
+    /* ================= ALL 100 FLOWERS ================= */
+
+    const allFlowers = [
+        "Lotus",
+        "Rose",
+        "Sunflower",
+        "Tulip",
+        "Marigold",
+        "Orchid",
+        "Jasmine",
+        "Lily",
+        "Carnation",
+        "Daffodil",
+        "Daisy",
+        "Hibiscus",
+        "Lavender",
+        "Magnolia",
+        "Peony",
+        "Coreopsis",
+        "Cherry Blossom",
+        "Dandelion",
+        "Poppy",
+        "Iris",
+        "Cosmos",
+        "Gerbera",
+        "Zinnia",
+        "Dahlia",
+        "Chrysanthemum",
+        "Gardenia",
+        "Plumeria",
+        "Periwinkle",
+        "Snapdragon",
+        "Morning Glory",
+        "Bluebell",
+        "Freesia",
+        "Jasmine Sambac",
+        "Bougainvillea",
+        "Petunia",
+        "Begonia",
+        "Camellia",
+        "Azalea",
+        "Anemone",
+        "Aster",
+        "Calendula",
+        "Calla Lily",
+        "Foxglove",
+        "Gladiolus",
+        "Heather",
+        "Honeysuckle",
+        "Hydrangea",
+        "Impatiens",
+        "Lilac",
+        "Nasturtium",
+        "Pansy",
+        "Primrose",
+        "Ranunculus",
+        "Rhododendron",
+        "Sweet Pea",
+        "Violet",
+        "Wisteria",
+        "Yarrow",
+        "Amaryllis",
+        "Bird of Paradise",
+        "Bleeding Heart",
+        "Buttercup",
+        "Columbine",
+        "Crocus",
+        "Delphinium",
+        "Edelweiss",
+        "Forget-Me-Not",
+        "Fuchsia",
+        "Hibiscus Mutabilis",
+        "Hollyhock",
+        "Jacaranda",
+        "Lantana",
+        "Lupine",
+        "Mimosa",
+        "Narcissus",
+        "Oleander",
+        "Passion Flower",
+        "Queen Anne's Lace",
+        "Salvia",
+        "Snowdrop",
+        "Statice",
+        "Tuberose",
+        "Verbena",
+        "Wallflower",
+        "Water Lily",
+        "Cosmos Sulphureus",
+        "Fox and Cubs",
+        "Goldenrod",
+        "Morning Glory Blue",
+        "Moonflower",
+        "Nasturtium Yellow",
+        "Poinsettia",
+        "Protea",
+        "Saffron Crocus",
+        "Sea Holly",
+        "Star Jasmine",
+        "Torch Ginger",
+        "Trumpet Vine",
+        "Wild Rose",
+        "Winter Jasmine"
+    ];
+
+
+    /* ================= SEARCH ================= */
+
+    const searchInput =
+        document.getElementById("fertilizerSearch");
+
+    const resultsBox =
+        document.getElementById("fertilizerResults");
+
+
+    searchInput.addEventListener("input", function () {
+
+        const value =
+            this.value.trim().toLowerCase();
+
+        resultsBox.innerHTML = "";
+
+        if (!value) {
+            resultsBox.style.display = "none";
+            return;
+        }
+
+
+        const matches = allFlowers
+            .filter(flower =>
+                flower.toLowerCase().includes(value)
+            )
+            .slice(0, 8);
+
+
+        if (matches.length === 0) {
+
+            resultsBox.innerHTML = `
+                <div class="fert-result">
+                    <strong>No flower found</strong>
+                    <small>Try another flower name.</small>
+                </div>
+            `;
+
+            resultsBox.style.display = "block";
+            return;
+        }
+
+
+        matches.forEach(flower => {
+
+            const item =
+                document.createElement("div");
+
+            item.className = "fert-result";
+
+            item.innerHTML = `
+                <strong>🌸 ${flower}</strong>
+                <small>View fertilizer recommendation</small>
+            `;
+
+            item.onclick = function () {
+
+                searchInput.value = flower;
+
+                resultsBox.style.display = "none";
+
+                showRecommendation(flower);
+
+            };
+
+            resultsBox.appendChild(item);
+
+        });
+
+
+        resultsBox.style.display = "block";
+
+    });
+
+
+    function searchFertilizer() {
+
+        const value =
+            searchInput.value.trim();
+
+        if (!value) {
+            searchInput.focus();
+            return;
+        }
+
+
+        const exact =
+            allFlowers.find(
+                flower =>
+                    flower.toLowerCase() === value.toLowerCase()
+            );
+
+
+        if (exact) {
+
+            searchInput.value = exact;
+
+            resultsBox.style.display = "none";
+
+            showRecommendation(exact);
+
+            return;
+        }
+
+
+        const partial =
+            allFlowers.find(
+                flower =>
+                    flower.toLowerCase().includes(value.toLowerCase())
+            );
+
+
+        if (partial) {
+
+            searchInput.value = partial;
+
+            resultsBox.style.display = "none";
+
+            showRecommendation(partial);
+
+        } else {
+
+            alert("Flower not found. Try another name.");
+
+        }
+
+    }
+
+
+    /* ================= RECOMMENDATION ================= */
+
+    function showRecommendation(flower) {
+
+        const box =
+            document.getElementById("recommendationBox");
+
+
+        const data =
+            fertilizerData[flower];
+
+
+        if (!data) {
+
+            box.innerHTML = `
+
+                <h3>🌸 ${flower}</h3>
+
+                <p>
+                    A detailed fertilizer recommendation for
+                    <strong>${flower}</strong>
+                    is coming soon to FloraVerse.
+                </p>
+
+                <div class="recommendation-grid">
+
+                    <div class="recommendation-item">
+                        <strong>🌿 Start Simple</strong>
+                        <span>
+                            Use a fertilizer intended for flowering
+                            plants only when the plant needs feeding.
+                        </span>
+                    </div>
+
+                    <div class="recommendation-item">
+                        <strong>🍂 Organic Option</strong>
+                        <span>
+                            Mature compost can be used as a general
+                            soil amendment where appropriate.
+                        </span>
+                    </div>
+
+                    <div class="recommendation-item">
+                        <strong>📋 Important</strong>
+                        <span>
+                            Always follow the product label and avoid
+                            over-fertilizing.
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="suggestion">
+                    💡 <strong>FloraVerse Suggestion:</strong>
+                    Before adding fertilizer, check sunlight,
+                    watering, soil condition and the plant's growth stage.
+                </div>
+
+            `;
+
+        } else {
+
+            box.innerHTML = `
+
+                <h3>🌸 ${flower} — Fertilizer Guide</h3>
+
+                <p>
+                    Here is a basic starting recommendation for
+                    <strong>${flower}</strong>.
+                </p>
+
+                <div class="recommendation-grid">
+
+                    <div class="recommendation-item">
+                        <strong>🌾 Recommended Type</strong>
+                        <span>${data.type}</span>
+                    </div>
+
+                    <div class="recommendation-item">
+                        <strong>🍂 Natural Option</strong>
+                        <span>${data.organic}</span>
+                    </div>
+
+                    <div class="recommendation-item">
+                        <strong>📅 Timing</strong>
+                        <span>${data.timing}</span>
+                    </div>
+
+                </div>
+
+                <div class="suggestion">
+                    💡 <strong>FloraVerse Suggestion:</strong>
+                    ${data.suggestion}
+                </div>
+
+            `;
+
+        }
+
+
+        box.style.display = "block";
+
+        box.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+    /* ================= OUTSIDE CLICK ================= */
+
+    document.addEventListener("click", function(event) {
+
+        if (
+            !event.target.closest(".fert-search") &&
+            !event.target.closest(".fert-search-results")
+        ) {
+            resultsBox.style.display = "none";
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

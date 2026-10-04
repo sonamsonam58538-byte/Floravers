@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spring Flowers | FloraVerse</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/flowers.css">
+    <link rel="stylesheet" href="../css/category.css">
+</head>
+
+<body class="category-page category-spring"></body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="logo">
+            FloraVerse
+        </div>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="../flowers.html">Flowers</a>
+            <a href="../flowers.html">Categories</a>
+            <a href="#">Growing Guide</a>
+            <a href="../login.html">Login</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section
+        class="category-hero"
+        style="background-image: url('../images/spring-background.jpg');"
+    >
+
+        <div class="category-hero-content">
+
+            <span class="category-tag">
+                🌸 SPRING COLLECTION
+            </span>
+
+            <h1>Spring Flowers</h1>
+
+            <p>
+                Fresh and colorful flowers that welcome
+                the beauty of spring.
+            </p>
+
+            <a
+                href="../flowers.html"
+                class="category-back-btn"
+            >
+                ← Back to Flowers
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FLOWER SECTION -->
+    <main class="category-section">
+
+        <div class="category-section-title">
+
+            <div>
+
+                <span class="category-tag">
+                    EXPLORE
+                </span>
+
+                <h2>Flowers of Spring</h2>
+
+            </div>
+
+            <span
+                class="category-count"
+                id="flowerCount"
+            ></span>
+
+        </div>
+
+
+        <div
+            class="category-flower-grid"
+            id="flowerGrid"
+        ></div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="category-footer">
+
+        <p>
+            © 2026 FloraVerse • Explore the beauty of flowers 🌸
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        const springFlowers = [
+
+            "Tulip",
+            "Daffodil",
+            "Cherry Blossom",
+            "Daisy",
+            "Peony",
+            "Carnation",
+            "Magnolia",
+            "Hyacinth",
+            "Primrose",
+            "Pansy",
+            "Iris",
+            "Freesia",
+            "Sweet Pea",
+            "Violet",
+            "Lilac",
+            "Anemone",
+            "Crocus",
+            "Ranunculus",
+            "Bluebell",
+            "Forget-Me-Not",
+            "Snapdragon",
+            "Columbine",
+            "Foxglove",
+            "Bleeding Heart",
+            "Lily of the Valley",
+            "Camellia",
+            "Azalea",
+            "Rhododendron",
+            "Wisteria",
+            "Apple Blossom"
+
+        ];
+
+
+        /* Existing detail pages */
+
+        const flowerDetails = {
+
+            "Tulip":
+                "../flower-details/tulip.html",
+
+            "Daffodil":
+                "../flower-details/daffodil.html",
+
+            "Cherry Blossom":
+                "../flower-details/cherry-blossom.html",
+
+            "Daisy":
+                "../flower-details/daisy.html",
+
+            "Peony":
+                "../flower-details/peony.html",
+
+            "Carnation":
+                "../flower-details/carnation.html",
+
+            "Magnolia":
+                "../flower-details/magnolia.html"
+
+        };
+
+
+        function flowerSlug(name) {
+
+            return name
+                .toLowerCase()
+                .replace(/[’']/g, "")
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/^-+|-+$/g, "");
+
+        }
+
+
+        const grid =
+            document.getElementById("flowerGrid");
+
+
+        const count =
+            document.getElementById("flowerCount");
+
+
+        count.textContent =
+            `${springFlowers.length} Flowers`;
+
+
+        springFlowers.forEach((flower, index) => {
+
+            const slug =
+                flowerSlug(flower);
+
+
+            const card =
+                document.createElement("article");
+
+
+            card.className =
+                "category-flower-card";
+
+
+            const imagePath =
+                `../images/${slug}.jpg`;
+
+
+            let actionHTML = "";
+
+
+            if (flowerDetails[flower]) {
+
+                actionHTML = `
+
+                    <a
+                        href="${flowerDetails[flower]}"
+                        class="explore-flower-btn"
+                    >
+                        Explore ${flower} →
+                    </a>
+
+                `;
+
+            } else {
+
+                actionHTML = `
+
+                    <div class="category-coming-soon">
+                        Details coming soon
+                    </div>
+
+                `;
+
+            }
+
+
+            card.innerHTML = `
+
+                <div class="category-image-wrapper">
+
+                    <img
+                        src="${imagePath}"
+                        alt="${flower}"
+                        class="category-flower-image"
+                        loading="lazy"
+                        onerror="this.src='../images/flower-placeholder.jpg'"
+                    >
+
+                    <span class="category-image-label">
+                        ${String(index + 1).padStart(2, "0")}
+                    </span>
+
+                </div>
+
+
+                <div class="category-flower-content">
+
+                    <h3 class="category-flower-name">
+                        ${flower}
+                    </h3>
+
+                    <p class="category-flower-category">
+                        Spring Flower
+                    </p>
+
+                    ${actionHTML}
+
+                </div>
+
+            `;
+
+
+            grid.appendChild(card);
+
+        });
+
+    </script>
+
+</body>
+
+</html>

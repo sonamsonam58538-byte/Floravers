@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aquatic Flowers | FloraVerse</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/flowers.css">
+    <link rel="stylesheet" href="../css/category.css">
+</head>
+
+<body class="category-page category-aquatic">
+
+    <!-- HERO SECTION -->
+    <section
+        class="category-hero"
+        style="background-image: url('../images/aquatic-background.jpg');">
+
+        <div class="category-hero-content">
+
+            <span class="category-tag">
+                💧 AQUATIC COLLECTION
+            </span>
+
+            <h1>Aquatic Flowers</h1>
+
+            <p>
+                Discover beautiful flowers that bloom in water,
+                ponds, lakes, and other aquatic environments.
+            </p>
+
+            <a href="../flowers.html" class="category-back-btn">
+                ← Back to Flowers
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- FLOWERS SECTION -->
+    <section class="category-section">
+
+        <div class="category-section-title">
+
+            <div>
+                <span class="category-tag">
+                    WATER BLOOMS
+                </span>
+
+                <h2>Explore Aquatic Flowers</h2>
+
+                <p>
+                    Explore graceful flowers that bring beauty and
+                    calmness to aquatic landscapes.
+                </p>
+            </div>
+
+            <span class="category-count" id="flowerCount"></span>
+
+        </div>
+
+
+        <!-- FLOWER GRID -->
+        <div class="category-flower-grid" id="flowerGrid"></div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="category-footer">
+        <p>© 2026 FloraVerse • Explore the beauty of flowers 🌸</p>
+    </footer>
+
+
+    <script>
+
+        const aquaticFlowers = [
+            "Lotus",
+            "Water Lily",
+            "Water Hyacinth",
+            "Water Poppy",
+            "Water Snowflake",
+            "Pickerelweed",
+            "Blue Water Lily",
+            "Yellow Water Lily",
+            "White Water Lily",
+            "Pink Water Lily",
+            "Sacred Lotus",
+            "American Lotus",
+            "Victoria Water Lily",
+            "Mosaic Flower",
+            "Water Hawthorn",
+            "Fairy Lily",
+            "Water Canna",
+            "Bog Lily",
+            "Arrowhead",
+            "Water Iris",
+            "Floating Heart",
+            "Pond Lily",
+            "Cape Pondweed",
+            "Pickerel Flower",
+            "Water Clover",
+            "Yellow Pond Lily",
+            "Fragrant Water Lily",
+            "Blue Lotus",
+            "Pink Lotus",
+            "White Lotus"
+        ];
+
+
+        /*
+         * Convert flower name into image/file slug.
+         * Example:
+         * Water Lily → water-lily
+         * Blue Lotus → blue-lotus
+         */
+        function flowerSlug(name) {
+
+            return name
+                .toLowerCase()
+                .replace(/[’']/g, "")
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/^-+|-+$/g, "");
+
+        }
+
+
+        /*
+         * Existing flower detail pages
+         */
+        const flowerDetails = {
+
+            "Lotus": "../flower-details/lotus.html"
+
+        };
+
+
+        const flowerGrid = document.getElementById("flowerGrid");
+        const flowerCount = document.getElementById("flowerCount");
+
+
+        flowerCount.textContent =
+            `${aquaticFlowers.length} Flowers`;
+
+
+        aquaticFlowers.forEach((flower, index) => {
+
+            const slug = flowerSlug(flower);
+
+            const card = document.createElement("div");
+            card.className = "category-flower-card";
+
+
+            const imageWrapper = document.createElement("div");
+            imageWrapper.className = "category-image-wrapper";
+
+
+            const image = document.createElement("img");
+
+            image.className = "category-flower-image";
+
+            image.src = `../images/${slug}.jpg`;
+
+            image.alt = `${flower} flower`;
+
+            image.onerror = function () {
+                this.src = "../images/flower-placeholder.jpg";
+            };
+
+
+            const imageLabel = document.createElement("span");
+            imageLabel.className = "category-image-label";
+
+            imageLabel.textContent =
+                String(index + 1).padStart(2, "0");
+
+
+            imageWrapper.appendChild(image);
+            imageWrapper.appendChild(imageLabel);
+
+
+            const content = document.createElement("div");
+            content.className = "category-flower-content";
+
+
+            const name = document.createElement("h3");
+            name.className = "category-flower-name";
+
+            name.textContent = flower;
+
+
+            const category = document.createElement("p");
+            category.className = "category-flower-category";
+
+            category.textContent = "Aquatic Flower";
+
+
+            const buttonArea = document.createElement("div");
+
+
+            /*
+             * If detail page exists → Explore Flower button
+             * Otherwise → Details coming soon
+             */
+            if (flowerDetails[flower]) {
+
+                const button = document.createElement("a");
+
+                button.href = flowerDetails[flower];
+
+                button.className = "explore-flower-btn";
+
+                button.textContent = "Explore Flower →";
+
+                buttonArea.appendChild(button);
+
+            } else {
+
+                const comingSoon = document.createElement("span");
+
+                comingSoon.className =
+                    "category-coming-soon";
+
+                comingSoon.textContent =
+                    "Details coming soon";
+
+                buttonArea.appendChild(comingSoon);
+
+            }
+
+
+            content.appendChild(name);
+            content.appendChild(category);
+            content.appendChild(buttonArea);
+
+
+            card.appendChild(imageWrapper);
+            card.appendChild(content);
+
+
+            flowerGrid.appendChild(card);
+
+        });
+
+    </script>
+
+</body>
+</html>
